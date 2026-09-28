@@ -1,0 +1,35 @@
+[
+  {
+    "id": "IND-PAT-001",
+    "title": "Section 3(p) - Indian Patents Act, 1970",
+    "jurisdiction": "India",
+    "category": "Patents",
+    "authority": "Indian Patent Office (CGPDTM)",
+    "official_citation": "The Patents Act, 1970 (Act No. 39 of 1970), Section 3(p)",
+    "version": "Current (as amended by Patents (Amendment) Act 2005)",
+    "summary": "An invention which in effect, is traditional knowledge or which is an aggregation or duplication of known properties of traditionally known component or components is not patentable.",
+    "key_clauses": [
+      "Traditional formulations described in authoritative Ayurvedic treatises (e.g. Charaka Samhita, Sushruta Samhita, Sahasrayogam) are barred from patentability as prior art.",
+      "Novel delivery mechanisms (liposomes, nanoparticles, specialized controlled-release matrices) of Ayurvedic extracts can overcome Section 3(p) if substantial synergy or technological leap is demonstrated.",
+      "Novel standardized extraction processes yielding unprecedented therapeutic biomarker profiles with inventive steps may be patentable as process patents."
+    ],
+    "practical_guidance": "Applicants must demonstrate synergy (non-obvious combination) exceeding mere additive effect under Section 3(e) and non-obvious efficacy improvements under Section 3(d) with quantitative pharmacological data.",
+    "keywords": ["Section 3(p)", "traditional knowledge", "patentability", "TKDL", "synergy", "extraction", "formulation"]
+  },
+  {
+    "id": "IND-PAT-002",
+    "title": "Section 3(d) & Section 3(e) - Efficacy and Admixture Bar",
+    "jurisdiction": "India",
+    "category": "Patents",
+    "authority": "Indian Patent Office (CGPDTM)",
+    "official_citation": "The Patents Act, 1970, Section 3(d) and Section 3(e)",
+    "version": "Current (amended 2005)",
+    "summary": "Section 3(d) prevents evergreening by excluding mere discovery of a new form of a known substance which does not result in the enhancement of the known efficacy. Section 3(e) bars a substance obtained by a mere admixture resulting only in aggregation of properties.",
+    "key_clauses": [
+      "For Ayurvedic polyherbal mixtures, merely mixing known herbs (e.g., Turmeric + Neem + Tulsi) is rejected under Section 3(e) as a mere admixture unless synergistic bio-enhancement is statistically proven.",
+      "Enhanced therapeutic efficacy under 3(d) must be demonstrated in clinical or robust in-vivo models, not merely chemical yield or bioavailability changes without therapeutic impact."
+    ],
+    "practical_guidance": "Provide Compounding Index (CI) or isobologram analysis demonstrating synergy (CI < 1.0) to successfully counter Section 3(e) objections in the First Examination Report (FER).",
+    "keywords": ["Section 3(d)", "Section 3(e)", "mere admixture", "synergy", "efficacy", "polyherbal"]
+  }
+]

@@ -1,0 +1,55 @@
+[
+  {
+    "id": "INT-FDA-001",
+    "title": "US FDA Botanical Drug Development Guidance for Industry",
+    "jurisdiction": "International",
+    "category": "International Drug Regulations",
+    "authority": "US Food and Drug Administration (CDER)",
+    "official_citation": "FDA-2015-D-0648; Botanical Drug Development Guidance for Industry (21 CFR Part 312)",
+    "version": "December 2016 Guidance Revision 1",
+    "summary": "Specific regulatory pathway for botanical products intended to be marketed as prescription drugs in the United States, accommodating batch-to-batch variation in complex plant mixtures.",
+    "key_clauses": [
+      "Botanical Drug Definition: Products that consist of vegetable materials (plant parts, algae, microscopic fungi, or combinations thereof) intended for use in disease diagnosis, cure, mitigation, treatment, or prevention.",
+      "Chemistry, Manufacturing, and Controls (CMC): Rigorous raw material sourcing controls (GACP - Good Agricultural and Collection Practices), spectroscopic fingerprinting (HPLC, LC-MS), and biological assays are required.",
+      "Clinical Trial Pathway: Phase 1 human safety trials may rely on documented prior human experience (such as centuries of Ayurvedic usage in India) to support initial safety without full conventional animal toxicology, but Phase 2 & Phase 3 pivotal trials must satisfy FDA efficacy endpoints.",
+      "Dietary Supplement Pathway (DSHEA 1994): If marketed without therapeutic drug claims, can be sold as dietary supplement under 21 CFR Part 111 cGMP with structure/function claims only."
+    ],
+    "practical_guidance": "For US expansion, decide early: Dietary Supplement (DSHEA - fast entry, no cure claims) vs Botanical Prescription Drug (NDA pathway - requires $20M+ multi-center clinical trials, but unlocks prescription exclusivity and insurance reimbursement).",
+    "keywords": ["US FDA", "Botanical Drug", "DSHEA", "NDI", "GACP", "dietary supplement", "fingerprinting", "21 CFR 312"]
+  },
+  {
+    "id": "INT-EMA-001",
+    "title": "EU Directive 2004/24/EC - Traditional Herbal Medicinal Products (THMPD)",
+    "jurisdiction": "International",
+    "category": "International Drug Regulations",
+    "authority": "European Medicines Agency (EMA) - Committee on Herbal Medicinal Products (HMPC)",
+    "official_citation": "Directive 2004/24/EC of the European Parliament and of the Council",
+    "version": "Current in EU Member States",
+    "summary": "Simplified registration procedure for traditional herbal medicinal products fulfilling specific criteria regarding duration of safe traditional medical use.",
+    "key_clauses": [
+      "30-Year Usage Criterion: Requires evidence that the medicinal product or corresponding product has been in medicinal use throughout a period of at least 30 years preceding the application, including at least 15 years within the European Union.",
+      "Non-EU Herbal Traditions: Ayurvedic medicines face hurdles for 15-year EU usage requirement unless documented EU distributor records exist, or European Community herbal monographs exist.",
+      "Indications: Exclusively suitable for self-medication without medical supervision (no injectable, prescription-only, or severe disease treatment permitted).",
+      "Full Well-Established Use (WEU): If 10 years of well-established medical use in EU with recognized efficacy (bibliographic data as per Directive 2001/83/EC Article 10a) can be demonstrated, full marketing authorization is available."
+    ],
+    "practical_guidance": "Exporters should collaborate with EU entities possessing documented 15-year import records or file under Food Supplement legislation (EFSA) where harmonized permitted botanicals exist.",
+    "keywords": ["EU Directive 2004/24/EC", "THMPD", "EMA", "HMPC", "traditional herbal use", "15 years EU", "food supplements"]
+  },
+  {
+    "id": "INT-WIPO-001",
+    "title": "WIPO Treaty on Intellectual Property, Genetic Resources and Associated Traditional Knowledge",
+    "jurisdiction": "International",
+    "category": "International IPR Treaties",
+    "authority": "World Intellectual Property Organization (WIPO)",
+    "official_citation": "WIPO/GRTKF/IC/47; Diplomatic Conference Treaty (May 2024)",
+    "version": "Adopted May 24, 2024",
+    "summary": "Historic global treaty establishing mandatory disclosure requirements for patent applicants worldwide whose inventions are based on genetic resources and associated traditional knowledge.",
+    "key_clauses": [
+      "Mandatory Patent Disclosure: Patent applicants worldwide must disclose the country of origin of genetic resources or the indigenous/local community that provided traditional knowledge.",
+      "Information Systems & TK Databases: Establishes interoperable databases (modeled on India's TKDL) accessible to patent examiners worldwide (USPTO, EPO, JPO, CNIPA) to prevent misappropriation.",
+      "Sanctions & Remedies: Failure to disclose provides grounds for administrative queries, post-grant review, and in fraudulent cases, revocation of patent rights."
+    ],
+    "practical_guidance": "Global startups utilizing Ayurvedic bio-resources must maintain transparent supply chain chain-of-custody documentation to satisfy mandatory WIPO disclosure when filing PCT applications.",
+    "keywords": ["WIPO", "Nagoya Protocol", "Mandatory Disclosure", "Genetic Resources", "Traditional Knowledge", "PCT", "TKDL"]
+  }
+]

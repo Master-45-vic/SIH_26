@@ -1,0 +1,37 @@
+[
+  {
+    "id": "BIO-ABS-001",
+    "title": "Biological Diversity Act, 2002 & Amendment Act, 2023 - ABS Compliance",
+    "jurisdiction": "India",
+    "category": "ABS & Biodiversity Rules",
+    "authority": "National Biodiversity Authority (NBA) & State Biodiversity Boards (SBB)",
+    "official_citation": "The Biological Diversity Act, 2002 (Act 18 of 2003) & Biological Diversity (Amendment) Act, 2023",
+    "version": "Current (2023 Amendment in force)",
+    "summary": "Mandates Access and Benefit Sharing (ABS) compliance for commercial utilization of biological resources occurring in India and prior approval before applying for intellectual property rights based on Indian bio-resources.",
+    "key_clauses": [
+      "Section 6(1): No person shall apply for any intellectual property right, by whatever name called, in or outside India for any invention based on any research or information on a biological resource obtained from India without obtaining prior approval of National Biodiversity Authority (Form III).",
+      "Section 3 & 4: Non-Indian citizens, foreign-controlled companies, or foreign collaborations require Form I NBA approval prior to accessing Indian bio-resources.",
+      "2023 Amendment Relief: Codified traditional knowledge practitioners, Ayush practitioners, and cultivators of medicinal plants are exempted from intimation to SBB, BUT patent applications still require NBA approval under Section 6.",
+      "ABS Benefit Sharing Fee: Typically 0.1% to 0.5% of ex-factory sale price or 3.0% to 5.0% of upfront patent licensing royalty paid to NBA."
+    ],
+    "practical_guidance": "File Form III with the National Biodiversity Authority at least 6-12 months prior to patent grant. Grant of patent by Indian Patent Office will be withheld or kept in abeyance without NBA NOC.",
+    "keywords": ["Biological Diversity Act", "ABS", "NBA Form III", "Form I", "benefit sharing", "Indian bio-resources", "patent filing"]
+  },
+  {
+    "id": "BIO-ABS-002",
+    "title": "Plant Variety Protection & Farmers' Rights Act, 2001",
+    "jurisdiction": "India",
+    "category": "Plant Variety Rights",
+    "authority": "PPV&FR Authority, Ministry of Agriculture & Farmers Welfare",
+    "official_citation": "Protection of Plant Varieties and Farmers' Rights Act, 2001 (Act 53 of 2001)",
+    "version": "Current",
+    "summary": "Grants plant breeders' rights for novel, distinct, uniform, and stable (DUS) varieties of medicinal and aromatic plants while safeguarding farmers' traditional rights to save, use, sow, and exchange seed.",
+    "key_clauses": [
+      "Medicinal plant cultivars (e.g. high-withanolide Ashwagandha cultivars like NMITLI-118, high-curcumin Turmeric IISR Prabha) can be registered under PPV&FR.",
+      "Section 39(1)(iv): Farmers are protected from infringement if they innocent of the law or cultivating for non-commercial farm-saved seeds.",
+      "Registration provides 15 years protection for extant varieties and 18 years for trees/vines."
+    ],
+    "practical_guidance": "Ayurvedic cultivators and agricultural startups should protect newly bred high-yielding chemotype varieties via PPV&FR registration rather than patenting the whole plant (barred under Indian Patent Act Section 3(j)).",
+    "keywords": ["PPV&FR", "Plant Variety Rights", "Section 3(j)", "DUS testing", "cultivars", "farmers rights", "medicinal plants"]
+  }
+]

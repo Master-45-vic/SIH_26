@@ -1,0 +1,38 @@
+[
+  {
+    "id": "FSSAI-AA-001",
+    "title": "Food Safety and Standards (Ayurveda Aahar) Regulations, 2022",
+    "jurisdiction": "India",
+    "category": "FSSAI Regulations",
+    "authority": "Food Safety and Standards Authority of India (FSSAI) & Ministry of AYUSH",
+    "official_citation": "F. No. Stds/SP(Nutraceuticals)/Ayush-1/FSSAI-2021; FSSAI Gazette Notification S.O. 2221(E)",
+    "version": "Notified May 5, 2022; In force",
+    "summary": "Governs food prepared in accordance with recipes or processes described in authoritative Ayurveda books listed in Schedule A, for everyday nutritional well-being without making direct disease therapeutic claims.",
+    "key_clauses": [
+      "Definition: Food prepared strictly in accordance with authoritative Ayurvedic treatises listed in Schedule A (e.g. Charaka Samhita, Sushruta Samhita, Astanga Hridaya, Bhavaprakasha, Bhojana Kutuhala).",
+      "Permitted Claims: Only health-promoting (Swastha-hitakara, Rasayana, Deepana, Pachana) or physiological well-being claims. Disease cure, prevention, or mitigation claims are STRICTLY PROHIBITED.",
+      "Mandatory Ayurveda Aahar Logo: Special green Ayush leaf & FSSAI insignia required prominently on the principal display panel.",
+      "Regulatory Distinction: Any product intended to treat, cure, mitigate, or diagnose medical diseases MUST be licensed as Ayurvedic Medicine under Drugs and Cosmetics Act Rule 158-B, NOT under FSSAI."
+    ],
+    "practical_guidance": "Startups producing herbal teas, chyawanprash-inspired nutrition bars, or wellness broths should obtain FSSAI Ayurveda Aahar license if sold without prescription or curative claims.",
+    "keywords": ["Ayurveda Aahar", "FSSAI", "Schedule A", "authoritative texts", "health claims", "nutraceutical", "Rasayana"]
+  },
+  {
+    "id": "IPR-TM-GI-001",
+    "title": "Trademarks & Geographical Indications (GI) for Ayurveda",
+    "jurisdiction": "India",
+    "category": "Trademarks & GI",
+    "authority": "Controller General of Patents, Designs and Trade Marks (CGPDTM)",
+    "official_citation": "Trade Marks Act 1999 (Class 5 & 30) & Geographical Indications of Goods Act 1999",
+    "version": "Current",
+    "summary": "Trademark registration for Ayurvedic brands and Geographical Indications protection for origin-linked medicinal plants and traditional products.",
+    "key_clauses": [
+      "Deceptive Similarity: Section 9 & 11 bars generic names of Ayurvedic herbs (e.g. 'Ashwagandha Forte', 'Triphala Care') as trademarks unless distinctively coined or secondary meaning established.",
+      "Class 5 covers Ayurvedic medicinal preparations, dietary supplements for medical use.",
+      "Class 3 covers Ayurvedic herbal cosmetics, soaps, skincare.",
+      "Geographical Indications protect place-specific botanical efficacy (e.g., GI Tagged Kashmiri Saffron, Malabar Pepper, Erode Turmeric, Navara Rice)."
+    ],
+    "practical_guidance": "Do not file generic herb names alone as word marks. Use coined prefixes, logos, and check whether bio-resources originate from a GI-registered region to leverage authentic export branding.",
+    "keywords": ["Trademark", "Class 5", "Class 3", "Geographical Indications", "GI Tag", "herbal branding"]
+  }
+]

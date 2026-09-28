@@ -1,0 +1,36 @@
+[
+  {
+    "id": "AYUSH-REG-001",
+    "title": "Drugs and Cosmetics Rules, 1945 - Rule 158-B",
+    "jurisdiction": "India",
+    "category": "AYUSH Regulations",
+    "authority": "Ministry of AYUSH & State Licensing Authorities",
+    "official_citation": "Drugs and Cosmetics (Third Amendment) Rules, 2010; Rule 158-B",
+    "version": "Current (Notified vide G.S.R. 376(E))",
+    "summary": "Guidelines for issue of license with respect to Ayurveda, Siddha or Unani drugs. Categorizes products into Classical formulations, Balya/Poshak formulations, and Patent/Proprietary medicines.",
+    "key_clauses": [
+      "Category 4.1: Classical Ayurveda formulations mentioned in authoritative texts specified in the First Schedule to the Drugs and Cosmetics Act, 1940 require published safety and efficacy references as per text without new clinical trials.",
+      "Category 4.2: Ayurvedic Patent or Proprietary Medicine requires proof of safety and effectiveness as per Schedule L-1 and Rule 158-B Table, depending on whether ingredients are textual or modified.",
+      "Any change in dosage form, vehicle (anupana), or route of administration compared to the authoritative classical text requires safety validation (acute toxicity tests as per OECD 423/425) and pilot clinical trials."
+    ],
+    "practical_guidance": "Proprietary medicines based on textually validated ingredients require acute oral toxicity data in rodents and published literature review, whereas modified extracts require Phase I/II human safety documentation.",
+    "keywords": ["Rule 158-B", "AYUSH license", "Classical Medicine", "Proprietary Medicine", "authoritative texts", "First Schedule", "toxicity"]
+  },
+  {
+    "id": "AYUSH-REG-002",
+    "title": "Classification of Phytopharmaceuticals - Rule 122E",
+    "jurisdiction": "India",
+    "category": "AYUSH & CDSCO Regulations",
+    "authority": "Central Drugs Standard Control Organization (CDSCO) & DCGI",
+    "official_citation": "Drugs and Cosmetics (Second Amendment) Rules, 2015 - GSR 918(E)",
+    "version": "Current (gazetted November 2015)",
+    "summary": "Phytopharmaceutical drug is defined as purified and standardized fraction with defined minimum of four bio-marker compounds or percentage of active chemical marker from an extract of medicinal plant parts for internal or external use of human beings.",
+    "key_clauses": [
+      "Differs from Ayurvedic medicine: Regulated under CDSCO Allopathic New Drugs framework (Form 44, Schedule Y), not State AYUSH Licensing Authority.",
+      "Requires rigorous preclinical CMC, mutagenicity, reproductive toxicity, and Phase I, II, III human clinical trials like conventional pharmaceutical drugs.",
+      "Allows modern pharmaceutical patent claims on the purified fraction without falling under Section 3(p) TKDL bars, provided chemical characterization and novel efficacy are established."
+    ],
+    "practical_guidance": "If a startup develops a >95% purified single fraction or 4-biomarker enriched fraction with clinical efficacy, they should explore Phytopharmaceutical registration under CDSCO rather than generic AYUSH proprietary license.",
+    "keywords": ["Phytopharmaceutical", "CDSCO", "Rule 122E", "biomarker", "purified fraction", "clinical trial"]
+  }
+]

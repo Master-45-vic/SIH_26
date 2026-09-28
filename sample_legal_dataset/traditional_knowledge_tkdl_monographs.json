@@ -1,0 +1,109 @@
+[
+  {
+    "id": "TKDL-MONO-001",
+    "plant_name": "Ashwagandha (Withania somnifera)",
+    "sanskrit_name": "Aśvagandhā (अश्वगंधा)",
+    "botanical_family": "Solanaceae",
+    "traditional_texts": [
+      "Charaka Samhita (Sutra Sthana 4:18, Chikitsa Sthana 1:2)",
+      "Sushruta Samhita (Sutra Sthana 38:54)",
+      "Bhavaprakasha Nighantu (Guduchyadi Varga)"
+    ],
+    "traditional_uses": [
+      "Balya (Strengthening)",
+      "Rasayana (Rejuvenator)",
+      "Vata-Kaphahara (Balancing Vata and Kapha)",
+      "Nidrajnan (Sleep inducing / adaptogenic)"
+    ],
+    "active_phytochemicals": [
+      "Withanolide A",
+      "Withanolide B",
+      "Withaferin A",
+      "Withanoside IV & VI"
+    ],
+    "patent_landscape": {
+      "patentable_opportunities": [
+        "Submicron emulsion / liposomal delivery systems for enhanced blood-brain barrier permeability",
+        "Supercritical CO2 green extraction process selectively eliminating cytotoxic withaferin A while maximizing withanolide A",
+        "Synergistic co-administration with Piper nigrum (piperine) with proven Compounding Index < 0.65"
+      ],
+      "tkdl_prior_art_bars": [
+        "Direct water/alcohol decoction for stress or stamina enhancement",
+        "Powdered root formulation for general debility (barred under Section 3(p) as known prior art)"
+      ],
+      "abs_requirement": "Form III mandatory before filing patent if Indian Withania somnifera bio-resource is utilized."
+    }
+  },
+  {
+    "id": "TKDL-MONO-002",
+    "plant_name": "Turmeric (Curcuma longa)",
+    "sanskrit_name": "Haridrā (हरिद्रा)",
+    "botanical_family": "Zingiberaceae",
+    "traditional_texts": [
+      "Charaka Samhita (Kusthaghna, Lekhaniya)",
+      "Sushruta Samhita (Vranaropana, Vishaghna)",
+      "Ashtanga Hridaya (Chikitsa Sthana)"
+    ],
+    "traditional_uses": [
+      "Vrana-shodhana (Wound cleansing and healing)",
+      "Kandughna (Relieving skin itching)",
+      "Varnya (Complexion enhancer)",
+      "Mehahara (Diabetes metabolic support)"
+    ],
+    "active_phytochemicals": [
+      "Curcumin",
+      "Demethoxycurcumin",
+      "Bisdemethoxycurcumin",
+      "Turmerones"
+    ],
+    "patent_landscape": {
+      "landmark_case": "US Patent 5,401,504 (Wound healing with Turmeric) granted to University of Mississippi Medical Center in 1995. Revoked in 1997 after CSIR submitted ancient Sanskrit treatises (Sushruta Samhita) establishing prior art. Historic landmark establishing TKDL.",
+      "patentable_opportunities": [
+        "Curcumin-galactomannan self-nanoemulsifying drug delivery systems (SNEDDS) boosting oral bioavailability by 40x",
+        "Targeted solid lipid nanoparticle (SLN) formulations for neuroprotective applications",
+        "Novel enzymatic biotransformation process converting curcumin into water-soluble tetrahydrocurcumin metabolites"
+      ],
+      "tkdl_prior_art_bars": [
+        "Topical application of turmeric paste for wound healing (Section 3(p))",
+        "Turmeric + Neem powder mixing for antiseptic skin wash (Section 3(e) mere admixture)"
+      ],
+      "abs_requirement": "Mandatory Form III with NBA if sourcing domestic Erode or Alleppey turmeric."
+    }
+  },
+  {
+    "id": "TKDL-MONO-003",
+    "plant_name": "Neem (Azadirachta indica)",
+    "sanskrit_name": "Nimba (निम्ब)",
+    "botanical_family": "Meliaceae",
+    "traditional_texts": [
+      "Charaka Samhita (Krimighna, Kusthaghna)",
+      "Sushruta Samhita (Tikta Skandha)",
+      "Bhavaprakasha Nighantu (Guduchyadi Varga)"
+    ],
+    "traditional_uses": [
+      "Krimighna (Antiparasitic / antimicrobial)",
+      "Kusthaghna (Dermatological healing)",
+      "Pitta-Kaphahara",
+      "Danta-dhavana (Oral hygiene)"
+    ],
+    "active_phytochemicals": [
+      "Azadirachtin",
+      "Nimbin",
+      "Nimbidin",
+      "Salannin"
+    ],
+    "patent_landscape": {
+      "landmark_case": "European Patent Office patent EP0436257 (Fungicidal properties of Neem) revoked in 2000 following opposition by India and NGOs citing TKDL evidence of century-old agricultural knowledge in India.",
+      "patentable_opportunities": [
+        "Microencapsulated azadirachtin sustained-release biodegradable pest-repellent hydrogels",
+        "Standardized chromatographic separation of bitter principles yielding non-bitter wound irrigation fluids",
+        "Targeted topical nano-gel with hyaluronic acid for resistant acne vulgaris"
+      ],
+      "tkdl_prior_art_bars": [
+        "Neem oil as pesticide or antifungal (barred under Section 3(p))",
+        "Bark extract as anti-inflammatory decoction (prior art in Charaka Samhita)"
+      ],
+      "abs_requirement": "Form I required for foreign collaborators; Form III required for IPR filing."
+    }
+  }
+]
