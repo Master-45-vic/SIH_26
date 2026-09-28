@@ -10,33 +10,33 @@ export default function GraphPage() {
   return (
     <div className="space-y-8">
       {/* Top Banner */}
-      <div className="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200/90 shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div className="glass-eco p-6 sm:p-8 rounded-3xl border border-[#c8d9c5]/80 shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div className="flex items-center space-x-3.5">
-          <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-indigo-600 to-purple-700 text-white flex items-center justify-center shadow-md shadow-indigo-500/20">
+          <div className="w-12 h-12 rounded-2xl bg-[#e2ede0] text-[#5a9330] flex items-center justify-center border border-[#c2d8be] shadow-sm">
             <Share2 className="w-6 h-6" />
           </div>
           <div>
             <div className="flex items-center space-x-2">
-              <h1 className="text-2xl font-black text-slate-900">Knowledge Graph Explorer</h1>
-              <span className="text-[10px] font-extrabold uppercase px-2 py-0.5 rounded-full bg-indigo-50 text-indigo-800 border border-indigo-300">
+              <h1 className="text-2xl sm:text-3xl font-black text-[#143825]">Knowledge Graph Explorer</h1>
+              <span className="text-[10px] font-extrabold uppercase px-3 py-1 rounded-full bg-[#e2ede0] text-[#143825] border border-[#c2d8be]">
                 5-Tier Lineage
               </span>
             </div>
-            <p className="text-xs text-slate-500 mt-0.5">
+            <p className="text-xs text-[#5e7164] mt-0.5">
               Visualizing the statutory continuum from botanical medicinal plants to TKDL prior art, patent grants/revocations, ABS compliance, and drug regulations.
             </p>
           </div>
         </div>
 
-        <div className="flex items-center space-x-2">
+        <div className="flex items-center space-x-2 flex-wrap gap-y-2">
           {["all", "turmeric", "neem", "ashwagandha", "brahmi"].map((herb) => (
             <button
               key={herb}
               onClick={() => setSelectedHerb(herb)}
-              className={`px-3 py-1.5 rounded-xl text-xs font-bold capitalize transition-all cursor-pointer ${
+              className={`px-4 py-2 rounded-full text-xs font-bold capitalize transition-all cursor-pointer ${
                 selectedHerb === herb
-                  ? "bg-indigo-600 text-white shadow-sm"
-                  : "bg-slate-100 text-slate-700 hover:bg-slate-200"
+                  ? "bg-[#5a9330] text-white shadow-sm"
+                  : "bg-[#e2ede0]/70 text-[#143825] hover:bg-[#e2ede0] border border-[#c2d8be]/70"
               }`}
             >
               {herb === "all" ? "All Lineages" : herb}
@@ -54,32 +54,32 @@ export default function GraphPage() {
           {
             tier: "Tier 1: Plant",
             desc: "Botanical identity, Sanskrit name, active chemotypes (Withanolides, Curcumin, Azadirachtin, Bacosides).",
-            color: "border-emerald-200 bg-emerald-50/50 text-emerald-800",
+            color: "border-[#c2d8be] bg-[#eef6ec] text-[#143825]",
           },
           {
             tier: "Tier 2: TKDL",
             desc: "Charaka Samhita, Sushruta Samhita, and CSIR defensive digital library protecting against biopiracy.",
-            color: "border-amber-200 bg-amber-50/50 text-amber-800",
+            color: "border-[#f1d7a8] bg-[#fff8eb] text-[#7c4a03]",
           },
           {
             tier: "Tier 3: Patent",
             desc: "Landmark revocations (US Turmeric, EPO Neem) and valid white space (SNEDDS, liposomes, nano-carriers).",
-            color: "border-indigo-200 bg-indigo-50/50 text-indigo-800",
+            color: "border-[#c8d9c5] bg-white/90 text-[#143825]",
           },
           {
             tier: "Tier 4: ABS",
             desc: "National Biodiversity Authority approvals (Form III before grant, Form I access, benefit sharing fee).",
-            color: "border-teal-200 bg-teal-50/50 text-teal-800",
+            color: "border-[#99d5ca] bg-[#e6f7f4] text-[#0f594d]",
           },
           {
             tier: "Tier 5: Regulation",
             desc: "Patents Act Sec 3p/3d/3e, Drugs & Cosmetics Rule 158-B, FSSAI Ayurveda Aahar, and US FDA Guidance.",
-            color: "border-sky-200 bg-sky-50/50 text-sky-800",
+            color: "border-[#c2d8be] bg-[#e2ede0] text-[#143825]",
           },
         ].map((item, idx) => (
-          <div key={idx} className={`p-4 rounded-2xl border ${item.color} space-y-1`}>
+          <div key={idx} className={`p-4 rounded-3xl border ${item.color} space-y-1.5 shadow-sm`}>
             <span className="text-xs font-black uppercase tracking-wide block">{item.tier}</span>
-            <p className="text-[11px] text-slate-600 leading-relaxed">{item.desc}</p>
+            <p className="text-[11px] text-[#4a6152] leading-relaxed">{item.desc}</p>
           </div>
         ))}
       </div>

@@ -79,58 +79,58 @@ export default function AdminPage() {
   return (
     <div className="space-y-8">
       {/* Top Banner */}
-      <div className="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200/90 shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div className="glass-eco p-6 sm:p-8 rounded-3xl border border-[#c8d9c5]/80 shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div className="flex items-center space-x-3.5">
-          <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-purple-600 to-indigo-700 text-white flex items-center justify-center shadow-md shadow-purple-500/20">
+          <div className="w-12 h-12 rounded-2xl bg-[#e2ede0] text-[#5a9330] flex items-center justify-center border border-[#c2d8be] shadow-sm">
             <Database className="w-6 h-6" />
           </div>
           <div>
             <div className="flex items-center space-x-2">
-              <h1 className="text-2xl font-black text-slate-900">Admin Legal Sources & Ingestion</h1>
-              <span className="text-[10px] font-extrabold uppercase px-2 py-0.5 rounded-full bg-purple-50 text-purple-800 border border-purple-300">
+              <h1 className="text-2xl sm:text-3xl font-black text-[#143825]">Admin Legal Sources & Ingestion</h1>
+              <span className="text-[10px] font-extrabold uppercase px-3 py-1 rounded-full bg-[#e2ede0] text-[#143825] border border-[#c2d8be]">
                 Hybrid RAG Corpus
               </span>
             </div>
-            <p className="text-xs text-slate-500 mt-0.5">
+            <p className="text-xs text-[#5e7164] mt-0.5">
               Upload PDF gazette notifications and manage verified statutory references indexed across BM25 and Qdrant.
             </p>
           </div>
         </div>
 
         <div className="text-right">
-          <span className="text-xs text-slate-400 block">Total Statutory Corpora</span>
-          <span className="text-lg font-black text-purple-700 font-mono">{documents.length} Indexed Texts</span>
+          <span className="text-xs text-[#5e7164] block">Total Statutory Corpora</span>
+          <span className="text-lg font-black text-[#143825] font-mono">{documents.length} Indexed Texts</span>
         </div>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         {/* Upload Form */}
-        <div className="bg-white rounded-3xl p-6 sm:p-7 border border-slate-200 shadow-sm space-y-5">
-          <div className="flex items-center space-x-2 pb-3 border-b border-slate-100">
-            <Upload className="w-4 h-4 text-purple-600" />
-            <h3 className="text-sm font-bold text-slate-900">Ingest Legal Document / PDF</h3>
+        <div className="glass-eco rounded-3xl p-6 sm:p-7 border border-[#c8d9c5]/80 shadow-sm space-y-5">
+          <div className="flex items-center space-x-2 pb-3 border-b border-[#c8d9c5]/60">
+            <Upload className="w-4 h-4 text-[#5a9330]" />
+            <h3 className="text-sm font-bold text-[#143825]">Ingest Legal Document / PDF</h3>
           </div>
 
           <form onSubmit={handleUpload} className="space-y-4">
             <div>
-              <label className="block text-xs font-bold text-slate-700 mb-1">Document Title</label>
+              <label className="block text-xs font-bold text-[#143825] mb-1">Document Title</label>
               <input
                 type="text"
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
                 placeholder="e.g. Gazette Notification S.O. 1234(E)"
-                className="w-full text-xs px-3.5 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-purple-500"
+                className="w-full text-xs px-3.5 py-2.5 rounded-2xl border border-[#c8d9c5] focus:outline-none focus:ring-2 focus:ring-[#5a9330] bg-white/80"
                 required
               />
             </div>
 
             <div className="grid grid-cols-2 gap-3">
               <div>
-                <label className="block text-xs font-bold text-slate-700 mb-1">Jurisdiction</label>
+                <label className="block text-xs font-bold text-[#143825] mb-1">Jurisdiction</label>
                 <select
                   value={jurisdiction}
                   onChange={(e) => setJurisdiction(e.target.value)}
-                  className="w-full text-xs px-3 py-2 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-purple-500 bg-white"
+                  className="w-full text-xs px-3 py-2 rounded-2xl border border-[#c8d9c5] focus:outline-none focus:ring-2 focus:ring-[#5a9330] bg-white/80"
                 >
                   <option value="India">🇮🇳 India</option>
                   <option value="International">🌐 International</option>
@@ -138,11 +138,11 @@ export default function AdminPage() {
               </div>
 
               <div>
-                <label className="block text-xs font-bold text-slate-700 mb-1">Category</label>
+                <label className="block text-xs font-bold text-[#143825] mb-1">Category</label>
                 <select
                   value={category}
                   onChange={(e) => setCategory(e.target.value)}
-                  className="w-full text-xs px-3 py-2 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-purple-500 bg-white"
+                  className="w-full text-xs px-3 py-2 rounded-2xl border border-[#c8d9c5] focus:outline-none focus:ring-2 focus:ring-[#5a9330] bg-white/80"
                 >
                   <option value="AYUSH Regulations">AYUSH Regulations</option>
                   <option value="Patents & IPR">Patents & IPR</option>
@@ -154,42 +154,42 @@ export default function AdminPage() {
             </div>
 
             <div>
-              <label className="block text-xs font-bold text-slate-700 mb-1">Issuing Authority</label>
+              <label className="block text-xs font-bold text-[#143825] mb-1">Issuing Authority</label>
               <input
                 type="text"
                 value={authority}
                 onChange={(e) => setAuthority(e.target.value)}
                 placeholder="e.g. National Biodiversity Authority"
-                className="w-full text-xs px-3.5 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-purple-500"
+                className="w-full text-xs px-3.5 py-2.5 rounded-2xl border border-[#c8d9c5] focus:outline-none focus:ring-2 focus:ring-[#5a9330] bg-white/80"
                 required
               />
             </div>
 
             <div>
-              <label className="block text-xs font-bold text-slate-700 mb-1">Official Statutory Citation</label>
+              <label className="block text-xs font-bold text-[#143825] mb-1">Official Statutory Citation</label>
               <input
                 type="text"
                 value={citation}
                 onChange={(e) => setCitation(e.target.value)}
                 placeholder="e.g. Act No. 18 of 2003, Section 6(1)"
-                className="w-full text-xs px-3.5 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-purple-500"
+                className="w-full text-xs px-3.5 py-2.5 rounded-2xl border border-[#c8d9c5] focus:outline-none focus:ring-2 focus:ring-[#5a9330] bg-white/80"
               />
             </div>
 
             <div>
-              <label className="block text-xs font-bold text-slate-700 mb-1">Select File (PDF or Text)</label>
+              <label className="block text-xs font-bold text-[#143825] mb-1">Select File (PDF or Text)</label>
               <input
                 type="file"
                 accept=".pdf,.txt,.json,.md"
                 onChange={(e) => setFile(e.target.files ? e.target.files[0] : null)}
-                className="w-full text-xs text-slate-500 file:mr-3 file:py-2 file:px-3 file:rounded-xl file:border-0 file:text-xs file:font-semibold file:bg-purple-50 file:text-purple-700 hover:file:bg-purple-100 cursor-pointer"
+                className="w-full text-xs text-[#5e7164] file:mr-3 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-xs file:font-semibold file:bg-[#e2ede0] file:text-[#143825] hover:file:bg-[#d5e7d2] cursor-pointer"
                 required
               />
             </div>
 
             {uploadSuccess && (
-              <div className="flex items-center space-x-2 text-xs font-semibold text-emerald-700 bg-emerald-50 p-2.5 rounded-xl border border-emerald-200">
-                <CheckCircle className="w-4 h-4 text-emerald-600 shrink-0" />
+              <div className="flex items-center space-x-2 text-xs font-semibold text-[#2d5c1e] bg-[#eef6ec] p-3 rounded-2xl border border-[#c2d8be]">
+                <CheckCircle className="w-4 h-4 text-[#5a9330] shrink-0" />
                 <span>{uploadSuccess}</span>
               </div>
             )}
@@ -197,7 +197,7 @@ export default function AdminPage() {
             <button
               type="submit"
               disabled={uploading || !file}
-              className="w-full py-2.5 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white rounded-xl text-xs font-bold shadow-md shadow-purple-500/20 transition-all cursor-pointer disabled:opacity-50"
+              className="w-full py-3 bg-[#5a9330] hover:bg-[#4d7d28] text-white rounded-full text-xs font-bold shadow-md shadow-[#5a9330]/20 transition-all cursor-pointer disabled:opacity-50"
             >
               {uploading ? "Extracting & Vector Indexing..." : "Upload & Re-Index Hybrid RAG"}
             </button>
@@ -205,62 +205,62 @@ export default function AdminPage() {
         </div>
 
         {/* Existing Legal Corpora Table */}
-        <div className="lg:col-span-2 bg-white rounded-3xl p-6 sm:p-7 border border-slate-200 shadow-sm space-y-4">
-          <div className="flex items-center justify-between pb-3 border-b border-slate-100">
+        <div className="lg:col-span-2 glass-eco rounded-3xl p-6 sm:p-7 border border-[#c8d9c5]/80 shadow-sm space-y-4">
+          <div className="flex items-center justify-between pb-3 border-b border-[#c8d9c5]/60">
             <div className="flex items-center space-x-2">
-              <FileText className="w-4 h-4 text-sky-600" />
-              <h3 className="text-sm font-bold text-slate-900">Active Indexed Legal Documents</h3>
+              <FileText className="w-4 h-4 text-[#5a9330]" />
+              <h3 className="text-sm font-bold text-[#143825]">Active Indexed Legal Documents</h3>
             </div>
-            <span className="text-xs text-slate-400">Total: {documents.length}</span>
+            <span className="text-xs text-[#5e7164]">Total: {documents.length}</span>
           </div>
 
           <div className="space-y-3 max-h-[560px] overflow-y-auto pr-1">
             {loading ? (
-              <div className="text-center py-20 text-slate-400 text-xs">
+              <div className="text-center py-20 text-[#5e7164] text-xs">
                 Loading legal corpus database...
               </div>
             ) : documents.length === 0 ? (
-              <div className="text-center py-16 text-slate-400 text-xs">
+              <div className="text-center py-16 text-[#5e7164] text-xs">
                 No documents found.
               </div>
             ) : (
               documents.map((doc) => (
                 <div
                   key={doc.id}
-                  className="p-4 rounded-2xl bg-slate-50 border border-slate-200/90 text-xs space-y-2 hover:border-purple-300 transition-all"
+                  className="p-4 rounded-2xl bg-white/80 border border-[#c8d9c5]/80 text-xs space-y-2 hover:border-[#5a9330]/60 transition-all shadow-sm"
                 >
                   <div className="flex items-start justify-between gap-3">
                     <div>
                       <div className="flex items-center space-x-2 flex-wrap gap-y-1">
-                        <span className="font-bold text-slate-900 text-xs">{doc.title}</span>
+                        <span className="font-bold text-[#143825] text-xs">{doc.title}</span>
                         <span
-                          className={`text-[10px] font-bold px-1.5 py-0.2 rounded border ${
+                          className={`text-[10px] font-bold px-2 py-0.5 rounded-full border ${
                             doc.jurisdiction === "India"
-                              ? "bg-emerald-50 text-emerald-700 border-emerald-200"
-                              : "bg-purple-50 text-purple-700 border-purple-200"
+                              ? "bg-[#eef6ec] text-[#2d5c1e] border-[#c2d8be]"
+                              : "bg-[#f4f6f5] text-[#143825] border-[#c8d9c5]"
                           }`}
                         >
                           {doc.jurisdiction}
                         </span>
-                        <span className="text-[10px] bg-slate-200/80 text-slate-700 px-1.5 py-0.2 rounded">
+                        <span className="text-[10px] bg-[#e2ede0] text-[#143825] px-2 py-0.5 rounded-full border border-[#c2d8be]">
                           {doc.category}
                         </span>
                       </div>
-                      <p className="text-[11px] font-mono text-slate-500 mt-0.5">{doc.official_citation}</p>
+                      <p className="text-[11px] font-mono text-[#5e7164] mt-0.5">{doc.official_citation}</p>
                     </div>
 
-                    <span className="text-[10px] font-mono text-slate-400 bg-white px-2 py-0.5 rounded border border-slate-200">
+                    <span className="text-[10px] font-mono text-[#5e7164] bg-white px-2 py-0.5 rounded-full border border-[#c8d9c5]">
                       {doc.doc_id}
                     </span>
                   </div>
 
-                  <p className="text-slate-600 text-[11px] line-clamp-2 leading-relaxed">
+                  <p className="text-[#4a6152] text-[11px] line-clamp-2 leading-relaxed">
                     {doc.summary}
                   </p>
 
-                  <div className="flex items-center justify-between text-[10px] text-slate-400 pt-1 border-t border-slate-200/60">
-                    <span>Authority: <strong className="text-slate-600">{doc.authority}</strong></span>
-                    <span>Version: <strong className="text-slate-600">{doc.version}</strong></span>
+                  <div className="flex items-center justify-between text-[10px] text-[#5e7164] pt-1.5 border-t border-[#c8d9c5]/50">
+                    <span>Authority: <strong className="text-[#143825]">{doc.authority}</strong></span>
+                    <span>Version: <strong className="text-[#143825]">{doc.version}</strong></span>
                   </div>
                 </div>
               ))

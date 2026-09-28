@@ -111,41 +111,41 @@ export const KnowledgeGraphView: React.FC<{ selectedPlant?: string }> = ({ selec
 
   const getNodeColor = (type: string) => {
     switch (type) {
-      case "Plant": return { fill: "#ecfdf5", stroke: "#10b981", text: "#065f46" };
-      case "TraditionalKnowledge": return { fill: "#fffbeb", stroke: "#f59e0b", text: "#92400e" };
-      case "Patent": return { fill: "#eef2ff", stroke: "#6366f1", text: "#3730a3" };
-      case "ABS": return { fill: "#f0fdfa", stroke: "#0d9488", text: "#115e59" };
-      case "Regulation": return { fill: "#f0f9ff", stroke: "#0284c7", text: "#075985" };
+      case "Plant": return { fill: "#eef6ec", stroke: "#5a9330", text: "#143825" };
+      case "TraditionalKnowledge": return { fill: "#fff8eb", stroke: "#d97706", text: "#78350f" };
+      case "Patent": return { fill: "#f4f6f5", stroke: "#244d33", text: "#143825" };
+      case "ABS": return { fill: "#e6f7f4", stroke: "#0f594d", text: "#042f2e" };
+      case "Regulation": return { fill: "#e2ede0", stroke: "#4d7d28", text: "#143825" };
       default: return { fill: "#f8fafc", stroke: "#94a3b8", text: "#334155" };
     }
   };
 
   return (
-    <div className="bg-white rounded-3xl border border-slate-200/90 shadow-sm overflow-hidden flex flex-col">
+    <div className="glass-eco rounded-3xl border border-[#c8d9c5]/80 shadow-md overflow-hidden flex flex-col">
       {/* Top Header & Filter Controls */}
-      <div className="px-6 py-4 border-b border-slate-200/80 bg-slate-50/70 flex flex-wrap items-center justify-between gap-4">
+      <div className="px-6 py-4 border-b border-[#c8d9c5]/60 bg-white/60 flex flex-wrap items-center justify-between gap-4">
         <div className="flex items-center space-x-3">
-          <div className="w-10 h-10 rounded-xl bg-sky-600 text-white flex items-center justify-center shadow-sm">
+          <div className="w-10 h-10 rounded-2xl bg-[#e2ede0] text-[#5a9330] flex items-center justify-center border border-[#c2d8be] shadow-sm">
             <Share2 className="w-5 h-5" />
           </div>
           <div>
-            <h3 className="text-base font-bold text-slate-900">Ayurveda Regulatory Knowledge Graph</h3>
-            <p className="text-xs text-slate-500">
+            <h3 className="text-base font-bold text-[#143825]">Ayurveda Regulatory Knowledge Graph</h3>
+            <p className="text-xs text-[#5e7164]">
               Interactive statutory lineage: Plant → Traditional Knowledge → Patent → ABS → Regulation
             </p>
           </div>
         </div>
 
         {/* Plant Filter Buttons */}
-        <div className="flex items-center space-x-1.5 bg-white p-1 rounded-xl border border-slate-200 shadow-inner">
+        <div className="flex items-center space-x-1.5 bg-[#e2ede0]/60 p-1 rounded-full border border-[#c2d8be]/70 shadow-inner">
           {["all", "turmeric", "neem", "ashwagandha", "brahmi"].map((plant) => (
             <button
               key={plant}
               onClick={() => setActivePlant(plant)}
-              className={`px-3 py-1 rounded-lg text-xs font-bold capitalize transition-all cursor-pointer ${
+              className={`px-3 py-1 rounded-full text-xs font-bold capitalize transition-all cursor-pointer ${
                 activePlant === plant
-                  ? "bg-sky-600 text-white shadow-sm"
-                  : "text-slate-600 hover:text-slate-900 hover:bg-slate-100"
+                  ? "bg-[#5a9330] text-white shadow-sm"
+                  : "text-[#143825] hover:text-[#5a9330] hover:bg-white/60"
               }`}
             >
               {plant === "all" ? "All Herbs" : plant}
@@ -154,18 +154,18 @@ export const KnowledgeGraphView: React.FC<{ selectedPlant?: string }> = ({ selec
         </div>
 
         {/* Zoom Controls */}
-        <div className="flex items-center space-x-1 bg-white p-1 rounded-xl border border-slate-200">
+        <div className="flex items-center space-x-1 bg-white/80 p-1 rounded-full border border-[#c8d9c5]">
           <button
             onClick={() => setZoom((z) => Math.max(0.7, z - 0.1))}
-            className="p-1.5 text-slate-500 hover:text-slate-900 hover:bg-slate-100 rounded-lg cursor-pointer"
+            className="p-1.5 text-[#143825] hover:bg-[#e2ede0] rounded-full cursor-pointer transition-colors"
             title="Zoom Out"
           >
             <ZoomOut className="w-4 h-4" />
           </button>
-          <span className="text-xs font-mono font-bold text-slate-700 px-1">{Math.round(zoom * 100)}%</span>
+          <span className="text-xs font-mono font-bold text-[#143825] px-1.5">{Math.round(zoom * 100)}%</span>
           <button
             onClick={() => setZoom((z) => Math.min(1.4, z + 0.1))}
-            className="p-1.5 text-slate-500 hover:text-slate-900 hover:bg-slate-100 rounded-lg cursor-pointer"
+            className="p-1.5 text-[#143825] hover:bg-[#e2ede0] rounded-full cursor-pointer transition-colors"
             title="Zoom In"
           >
             <ZoomIn className="w-4 h-4" />
@@ -220,7 +220,7 @@ export const KnowledgeGraphView: React.FC<{ selectedPlant?: string }> = ({ selec
                     refY="2.5"
                     orient="auto"
                   >
-                    <polygon points="0 0, 7 2.5, 0 5" fill="#0284c7" />
+                    <polygon points="0 0, 7 2.5, 0 5" fill="#5a9330" />
                   </marker>
                 </defs>
 
@@ -242,7 +242,7 @@ export const KnowledgeGraphView: React.FC<{ selectedPlant?: string }> = ({ selec
                       <path
                         d={path}
                         fill="none"
-                        stroke={isConnectedToSelected ? "#0284c7" : "#cbd5e1"}
+                        stroke={isConnectedToSelected ? "#5a9330" : "#c8d9c5"}
                         strokeWidth={isConnectedToSelected ? 2.5 : 1.5}
                         strokeDasharray={edge.relation.includes("BAR") || edge.relation.includes("REVOKED") ? "4 3" : undefined}
                         markerEnd={isConnectedToSelected ? "url(#arrowhead-active)" : "url(#arrowhead)"}
@@ -252,7 +252,7 @@ export const KnowledgeGraphView: React.FC<{ selectedPlant?: string }> = ({ selec
                       <text
                         x={midX}
                         y={midY - 6}
-                        fill={isConnectedToSelected ? "#0369a1" : "#64748b"}
+                        fill={isConnectedToSelected ? "#143825" : "#5e7164"}
                         fontSize="9"
                         fontWeight="600"
                         textAnchor="middle"
@@ -281,16 +281,15 @@ export const KnowledgeGraphView: React.FC<{ selectedPlant?: string }> = ({ selec
                     }}
                     className={`absolute p-2.5 rounded-2xl border transition-all duration-200 cursor-pointer shadow-sm ${
                       isSelected
-                        ? "ring-3 ring-sky-500 shadow-lg scale-105 z-20"
+                        ? "ring-3 ring-[#5a9330] shadow-lg scale-105 z-20"
                         : "hover:scale-102 hover:shadow-md z-10"
                     }`}
-                    style-border={{ borderColor: colors.stroke }}
                   >
                     <div
                       className="rounded-xl p-2 border"
                       style={{
                         backgroundColor: colors.fill,
-                        borderColor: isSelected ? "#0284c7" : colors.stroke,
+                        borderColor: isSelected ? "#5a9330" : colors.stroke,
                       }}
                     >
                       <div className="flex items-center justify-between mb-1">
@@ -320,36 +319,36 @@ export const KnowledgeGraphView: React.FC<{ selectedPlant?: string }> = ({ selec
         </div>
 
         {/* Selected Node Details Panel */}
-        <div className="p-6 bg-white flex flex-col justify-between">
+        <div className="p-6 bg-white/90 flex flex-col justify-between border-t lg:border-t-0 border-[#c8d9c5]/60">
           {selectedNode ? (
             <div className="space-y-4">
               <div className="flex items-center justify-between">
-                <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-slate-100 text-slate-700">
+                <span className="text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-[#e2ede0] text-[#143825] border border-[#c2d8be]">
                   {selectedNode.type} Node
                 </span>
-                <span className="text-[11px] text-slate-400 font-mono">ID: {selectedNode.id}</span>
+                <span className="text-[11px] text-[#5e7164] font-mono">ID: {selectedNode.id}</span>
               </div>
 
               <div>
-                <h4 className="text-base font-bold text-slate-900">{selectedNode.label}</h4>
-                <p className="text-xs text-slate-500 mt-0.5">Statutory & Monograph Metadata</p>
+                <h4 className="text-base font-bold text-[#143825]">{selectedNode.label}</h4>
+                <p className="text-xs text-[#5e7164] mt-0.5">Statutory & Monograph Metadata</p>
               </div>
 
               {/* Dynamic Properties */}
-              <div className="space-y-2 bg-slate-50 p-3.5 rounded-2xl border border-slate-200/80 text-xs">
+              <div className="space-y-2 bg-[#edf5eb]/60 p-3.5 rounded-2xl border border-[#c8d9c5]/70 text-xs">
                 {Object.entries(selectedNode.properties).map(([k, v]) => (
-                  <div key={k} className="border-b border-slate-200/60 pb-1.5 last:border-0 last:pb-0">
-                    <span className="text-[10px] font-bold uppercase text-slate-400 block">
+                  <div key={k} className="border-b border-[#c8d9c5]/50 pb-1.5 last:border-0 last:pb-0">
+                    <span className="text-[10px] font-bold uppercase text-[#5e7164] block">
                       {k.replace(/_/g, " ")}
                     </span>
-                    <span className="text-slate-800 font-medium leading-relaxed">{String(v)}</span>
+                    <span className="text-[#143825] font-semibold leading-relaxed">{String(v)}</span>
                   </div>
                 ))}
               </div>
 
               {/* Connected Lineage Relations */}
               <div>
-                <h5 className="text-xs font-bold text-slate-800 mb-2">Connected Knowledge Links</h5>
+                <h5 className="text-xs font-bold text-[#143825] mb-2">Connected Knowledge Links</h5>
                 <div className="space-y-1.5 max-h-40 overflow-y-auto pr-1">
                   {edges
                     .filter((e) => e.source === selectedNode.id || e.target === selectedNode.id)
@@ -361,13 +360,13 @@ export const KnowledgeGraphView: React.FC<{ selectedPlant?: string }> = ({ selec
                         <div
                           key={idx}
                           onClick={() => otherNode && setSelectedNode(otherNode)}
-                          className="p-2 rounded-xl bg-sky-50/70 border border-sky-200/70 text-[11px] text-sky-900 flex items-center justify-between cursor-pointer hover:bg-sky-100 transition-colors"
+                          className="p-2.5 rounded-xl bg-[#eef6ec] border border-[#c2d8be] text-[11px] text-[#143825] flex items-center justify-between cursor-pointer hover:bg-[#e2ede0] transition-colors"
                         >
                           <div>
-                            <span className="font-bold">{isOutgoing ? "➔ " : "⬅ "} {e.label}</span>
-                            <p className="text-slate-500 text-[10px]">{otherNode?.label}</p>
+                            <span className="font-bold text-[#5a9330]">{isOutgoing ? "➔ " : "⬅ "} {e.label}</span>
+                            <p className="text-[#4a6152] text-[10px]">{otherNode?.label}</p>
                           </div>
-                          <span className="text-[9px] bg-white px-1.5 py-0.5 rounded font-bold border border-sky-200 text-sky-700">
+                          <span className="text-[9px] bg-white px-2 py-0.5 rounded-full font-bold border border-[#c2d8be] text-[#143825]">
                             {otherNode?.type}
                           </span>
                         </div>
@@ -377,14 +376,14 @@ export const KnowledgeGraphView: React.FC<{ selectedPlant?: string }> = ({ selec
               </div>
             </div>
           ) : (
-            <div className="text-center py-16 text-slate-400">
-              <Info className="w-8 h-8 mx-auto mb-2 text-slate-300" />
+            <div className="text-center py-16 text-[#5e7164]">
+              <Info className="w-8 h-8 mx-auto mb-2 text-[#c8d9c5]" />
               <p className="text-xs">Click any node in the graph to inspect legal lineage and patent links.</p>
             </div>
           )}
 
-          <div className="pt-4 border-t border-slate-100 text-[11px] text-slate-400 flex items-center space-x-2">
-            <CheckCircle className="w-3.5 h-3.5 text-emerald-500" />
+          <div className="pt-4 border-t border-[#c8d9c5]/60 text-[11px] text-[#5e7164] flex items-center space-x-2">
+            <CheckCircle className="w-3.5 h-3.5 text-[#5a9330]" />
             <span>Synced with TKDL & Indian Patents Act 1970</span>
           </div>
         </div>

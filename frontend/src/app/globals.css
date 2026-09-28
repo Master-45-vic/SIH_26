@@ -1,26 +1,68 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --background: #edf5eb;
+  --foreground: #143825;
+  --sage-50: #f4faf2;
+  --sage-100: #e8f4e6;
+  --sage-200: #d5ebd0;
+  --forest-900: #0f2b1c;
+  --forest-800: #143825;
+  --forest-700: #1b4b32;
+  --herbal-600: #588e2c;
+  --herbal-500: #6ea838;
+  --herbal-400: #88c14d;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: #edf5eb;
+  background-image: 
+    linear-gradient(to bottom, rgba(237, 245, 235, 0.88), rgba(237, 245, 235, 0.94)),
+    url('/images/ayurveda_bg_env.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center top;
+  color: #143825;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  overflow-x: hidden;
+}
+
+/* Glassmorphism for eco cards */
+.glass-eco {
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+}
+
+.glass-eco-dark {
+  background: rgba(15, 43, 28, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+/* Smooth organic arch shape */
+.arch-mask {
+  border-top-left-radius: 200px;
+  border-top-right-radius: 200px;
+  border-bottom-left-radius: 40px;
+  border-bottom-right-radius: 40px;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #e5f0e3;
+}
+::-webkit-scrollbar-thumb {
+  background: #a9caa1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #7ca571;
 }

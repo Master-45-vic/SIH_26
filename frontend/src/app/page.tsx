@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 import { useJurisdiction } from "@/context/JurisdictionContext";
 import { useLanguage } from "@/context/LanguageContext";
 import {
@@ -10,23 +11,18 @@ import {
   Layers,
   Lightbulb,
   Share2,
-  Bell,
-  Database,
   ArrowRight,
-  ShieldCheck,
   Search,
-  Scale,
-  Award,
+  ShieldCheck,
   Globe2,
-  FileCheck2,
-  ChevronRight,
+  Leaf,
   CheckCircle2,
 } from "lucide-react";
 
 export default function HomePage() {
   const router = useRouter();
   const { jurisdiction, setJurisdiction } = useJurisdiction();
-  const { language, t } = useLanguage();
+  const { t } = useLanguage();
   const [quickQuery, setQuickQuery] = useState("");
 
   const handleSearchSubmit = (e: React.FormEvent) => {
@@ -36,291 +32,238 @@ export default function HomePage() {
     }
   };
 
-  const sampleQuestions = [
-    "Can I patent a novel liposomal Curcumin + Piperine formulation in India?",
-    "What is the difference between Classical Medicine and Proprietary Medicine under Rule 158-B?",
-    "When is National Biodiversity Authority (NBA) Form III mandatory?",
-    "How does FSSAI Ayurveda Aahar differ from AYUSH proprietary medicine?",
-    "What are US FDA requirements for marketing an Ayurvedic botanical drug under 21 CFR 312?",
-  ];
-
   return (
-    <div className="space-y-12">
-      {/* Hero Section */}
-      <section className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-blue-900 via-sky-800 to-indigo-950 text-white p-8 sm:p-12 lg:p-16 shadow-xl border border-sky-700/40">
-        <div className="absolute top-0 right-0 -mt-10 -mr-10 w-96 h-96 bg-sky-500/10 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute bottom-0 left-0 -mb-10 -ml-10 w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none" />
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-16">
+      {/* 
+        ========================================================================
+        HERO SECTION: Clean, uncluttered, spacious botanical layout
+        ========================================================================
+      */}
+      <section className="relative">
+        {/* Subtle decorative leaf accent */}
+        <div className="absolute -left-12 -top-6 w-36 h-36 pointer-events-none opacity-50 hidden lg:block">
+          <Image
+            src="/images/leaf_accent.jpg"
+            alt="Botanical Leaf Accent"
+            width={140}
+            height={140}
+            className="object-contain mix-blend-multiply"
+          />
+        </div>
 
-        <div className="relative z-10 max-w-4xl mx-auto text-center space-y-6">
-          {/* Active Jurisdiction Badge */}
-          <div className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/20 text-xs font-semibold">
-            <span className="flex h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
-            <span>Active Framework:</span>
-            <span className="text-amber-300 font-bold">
-              {jurisdiction === "India" ? "🇮🇳 India Domestic Laws" : "🌐 International (WIPO / US FDA / EU)"}
-            </span>
-            <button
-              onClick={() => setJurisdiction(jurisdiction === "India" ? "International" : "India")}
-              className="ml-1 text-[11px] underline text-sky-200 hover:text-white cursor-pointer"
-            >
-              (Switch)
-            </button>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+          {/* Left Column: Focused, concise typography & search */}
+          <div className="lg:col-span-7 space-y-6">
+            <div className="inline-flex items-center space-x-2 bg-[#e2ede0] text-[#143825] px-3.5 py-1.5 rounded-full text-xs font-bold border border-[#c2d8be]">
+              <Leaf className="w-3.5 h-3.5 text-[#5a9330]" />
+              <span>Ayurveda IPR & Regulatory Intelligence</span>
+            </div>
+
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-[#143825] tracking-tight leading-[1.12]">
+              Navigating Ayurveda IPR & Compliance with AI
+            </h1>
+
+            <p className="text-sm sm:text-base text-[#4a6152] leading-relaxed max-w-xl">
+              Instant statutory guidance across Patents Act Section 3(p), Drugs & Cosmetics Rule 158-B, and National Biodiversity Authority (NBA) ABS compliance.
+            </p>
+
+            {/* Quick Ask Search Input */}
+            <form onSubmit={handleSearchSubmit} className="max-w-lg">
+              <div className="relative flex items-center shadow-sm rounded-full bg-white/90 border border-[#c8d9c5] p-1.5 focus-within:ring-2 focus-within:ring-[#5a9330]">
+                <Search className="w-4 h-4 text-[#5a9330] ml-3" />
+                <input
+                  type="text"
+                  value={quickQuery}
+                  onChange={(e) => setQuickQuery(e.target.value)}
+                  placeholder="Ask about Section 3(p), Rule 158-B, or formulation..."
+                  className="w-full bg-transparent text-xs sm:text-sm text-[#143825] placeholder-[#7d9f8c] px-3 py-2 focus:outline-none"
+                />
+                <button
+                  type="submit"
+                  className="bg-[#5a9330] hover:bg-[#4d7d28] text-white px-5 py-2.5 rounded-full text-xs font-bold transition-all shrink-0 cursor-pointer shadow-sm"
+                >
+                  Analyze
+                </button>
+              </div>
+            </form>
+
+            {/* Primary Action Buttons */}
+            <div className="flex flex-wrap items-center gap-3 pt-1">
+              <Link
+                href="/assistant"
+                className="bg-[#143825] hover:bg-[#0c2417] text-white px-6 py-3 rounded-full text-xs font-bold shadow-sm transition-all flex items-center space-x-2 cursor-pointer"
+              >
+                <Sparkles className="w-4 h-4 text-[#a6eb90]" />
+                <span>Launch AI Assistant</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </Link>
+
+              <Link
+                href="/classify"
+                className="bg-white/80 hover:bg-white text-[#143825] border border-[#c8d9c5] px-6 py-3 rounded-full text-xs font-bold shadow-sm transition-all flex items-center space-x-2 cursor-pointer"
+              >
+                <Layers className="w-4 h-4 text-[#5a9330]" />
+                <span>Classify Product</span>
+              </Link>
+            </div>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-black tracking-tight leading-tight">
-            AI-Powered Multilingual <br />
-            <span className="bg-gradient-to-r from-sky-300 via-cyan-200 to-amber-200 bg-clip-text text-transparent">
-              Ayurveda IPR & Regulatory Assistant
-            </span>
-          </h1>
-
-          <p className="text-base sm:text-lg text-sky-100/90 font-normal max-w-2xl mx-auto leading-relaxed">
-            Navigate Patents (Sec 3p/3d/3e), TKDL prior art, ABS compliance (NBA Form III), AYUSH Rule 158-B licensing, and FSSAI Ayurveda Aahar with statutory precision.
-          </p>
-
-          {/* Quick Search Bar */}
-          <form onSubmit={handleSearchSubmit} className="max-w-2xl mx-auto pt-2">
-            <div className="relative flex items-center">
-              <input
-                type="text"
-                value={quickQuery}
-                onChange={(e) => setQuickQuery(e.target.value)}
-                placeholder={t("askQuestion")}
-                className="w-full text-slate-900 bg-white placeholder-slate-400 pl-12 pr-32 py-4 rounded-2xl text-sm font-medium shadow-2xl focus:outline-none focus:ring-4 focus:ring-sky-400/40"
+          {/* Right Column: Visual Frame */}
+          <div className="lg:col-span-5 flex justify-center">
+            <div className="relative w-full max-w-[380px] h-[440px] sm:h-[480px] rounded-3xl overflow-hidden shadow-xl border-4 border-white/90 bg-white">
+              <Image
+                src="/images/hero_botanicals.jpg"
+                alt="Ayurvedic Botanical Elixirs and Medicinal Plants"
+                fill
+                priority
+                className="object-cover object-center"
               />
-              <Search className="w-5 h-5 text-slate-400 absolute left-4" />
-              <button
-                type="submit"
-                className="absolute right-2.5 px-5 py-2.5 bg-gradient-to-r from-sky-600 to-blue-600 text-white font-bold text-xs rounded-xl shadow-md hover:from-sky-700 hover:to-blue-700 transition-all cursor-pointer flex items-center space-x-1"
-              >
-                <span>Analyze</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </button>
-            </div>
-          </form>
+              <div className="absolute inset-0 bg-gradient-to-t from-[#143825]/60 via-transparent to-transparent" />
 
-          {/* Sample Prompts Pills */}
-          <div className="pt-2 text-left sm:text-center">
-            <span className="text-[11px] uppercase tracking-wider text-sky-300 font-bold block mb-2">
-              Popular Statutory Inquiries:
-            </span>
-            <div className="flex flex-wrap items-center justify-center gap-2">
-              {sampleQuestions.slice(0, 3).map((q, idx) => (
-                <button
-                  key={idx}
-                  onClick={() => router.push(`/assistant?q=${encodeURIComponent(q)}`)}
-                  className="bg-white/10 hover:bg-white/20 text-white text-xs px-3 py-1.5 rounded-xl border border-white/15 backdrop-blur-sm transition-all text-left truncate max-w-xs cursor-pointer"
-                >
-                  "{q.slice(0, 48)}..."
-                </button>
-              ))}
+              {/* Floating Verified Badge */}
+              <div className="absolute bottom-5 left-5 right-5 glass-eco p-3.5 rounded-2xl shadow-lg border border-white/80">
+                <div className="flex items-center space-x-2.5">
+                  <div className="w-8 h-8 rounded-full bg-[#5a9330] text-white flex items-center justify-center shrink-0">
+                    <ShieldCheck className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <div className="text-xs font-bold text-[#143825]">100% Statutorily Verified</div>
+                    <div className="text-[10px] text-[#4a6152]">Patents Act 1970 • Rule 158-B • NBA Form III</div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* National Portal Stats Marquee */}
-      <section className="grid grid-cols-2 md:grid-cols-4 gap-4">
-        {[
-          { label: "Codified Treatises & Acts", val: "54+ Texts", sub: "First Schedule D&C Act & TKDL", icon: Scale },
-          { label: "Hybrid RAG Precision", val: "BM25 + Vectors", sub: "Statutory source citation guarantee", icon: Database },
-          { label: "Jurisdiction Guardrails", val: "100% Isolated", sub: "India vs International separated", icon: Globe2 },
-          { label: "Multilingual Engine", val: "EN • HI • TA", sub: "English, हिन्दी, தமிழ்", icon: Award },
-        ].map((stat, i) => {
-          const Icon = stat.icon;
-          return (
-            <div key={i} className="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm flex items-center space-x-4">
-              <div className="w-12 h-12 rounded-xl bg-sky-50 text-sky-700 flex items-center justify-center shrink-0 border border-sky-100">
-                <Icon className="w-6 h-6" />
-              </div>
-              <div>
-                <span className="text-lg font-black text-slate-900 tracking-tight block">{stat.val}</span>
-                <h4 className="text-xs font-bold text-slate-700">{stat.label}</h4>
-                <p className="text-[11px] text-slate-400">{stat.sub}</p>
-              </div>
-            </div>
-          );
-        })}
-      </section>
-
-      {/* Core Feature Suites */}
+      {/* 
+        ========================================================================
+        THREE CORE ENGINES: Clean, spacious, uncrowded cards
+        ========================================================================
+      */}
       <section className="space-y-6">
-        <div className="text-center max-w-xl mx-auto space-y-2">
-          <span className="text-xs font-extrabold uppercase tracking-wider text-sky-600 bg-sky-50 px-3 py-1 rounded-full border border-sky-200">
-            Intelligent Regulatory Suite
-          </span>
-          <h2 className="text-2xl sm:text-3xl font-black text-slate-900">
-            Purpose-Built for the Ayurveda Innovation Ecosystem
+        <div className="text-center space-y-1">
+          <h2 className="text-2xl sm:text-3xl font-black text-[#143825]">
+            Core Statutory Engines
           </h2>
-          <p className="text-xs text-slate-500">
-            From formulation idea to patent grant and commercial license.
+          <p className="text-xs text-[#5e7164]">
+            Actionable legal and regulatory intelligence tailored for practitioners, researchers, and enterprises.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {/* Card 1: Product Classification */}
-          <div className="bg-white rounded-3xl p-6 border border-slate-200 shadow-sm hover:shadow-md hover:border-sky-300 transition-all flex flex-col justify-between group">
-            <div className="space-y-4">
-              <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-sky-500 to-blue-600 text-white flex items-center justify-center shadow-md shadow-sky-500/20">
-                <Layers className="w-6 h-6" />
+          {/* Card 1: Classification */}
+          <Link
+            href="/classify"
+            className="glass-eco rounded-3xl p-6 sm:p-7 border border-[#c8d9c5]/80 shadow-sm hover:shadow-md hover:border-[#5a9330]/60 transition-all flex flex-col justify-between group"
+          >
+            <div className="space-y-3">
+              <div className="w-11 h-11 rounded-2xl bg-[#e2ede0] text-[#5a9330] flex items-center justify-center shadow-sm">
+                <Layers className="w-5 h-5" />
               </div>
-              <div>
-                <h3 className="text-lg font-bold text-slate-900 group-hover:text-sky-700 transition-colors">
-                  Product Classification Engine
-                </h3>
-                <p className="text-xs text-slate-500 mt-1 leading-relaxed">
-                  5-question wizard categorizing products into Classical Medicine, Proprietary, Phytopharmaceutical, Ayurveda-Aahar, or Cosmetics with Rule 158-B reasoning.
-                </p>
-              </div>
-              <ul className="text-xs space-y-1.5 text-slate-700">
-                <li className="flex items-center space-x-2">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500" />
-                  <span>Rule 158-B Category 4.1 vs 4.2 differentiation</span>
-                </li>
-                <li className="flex items-center space-x-2">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500" />
-                  <span>CDSCO Rule 122E Phytopharmaceutical checks</span>
-                </li>
-                <li className="flex items-center space-x-2">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500" />
-                  <span>FSSAI Ayurveda Aahar Schedule A check</span>
-                </li>
-              </ul>
+              <h3 className="text-lg font-bold text-[#143825] group-hover:text-[#5a9330] transition-colors">
+                Product Classification
+              </h3>
+              <p className="text-xs text-[#4a6152] leading-relaxed">
+                Categorize products into Classical Medicine, Proprietary, Phytopharmaceutical, or Ayurveda-Aahar with statutory forms and licensing rules.
+              </p>
             </div>
-            <Link
-              href="/classify"
-              className="mt-6 flex items-center justify-between py-2.5 px-4 rounded-xl bg-slate-50 hover:bg-sky-50 text-slate-700 hover:text-sky-700 font-bold text-xs border border-slate-200 hover:border-sky-200 transition-all"
-            >
-              <span>Launch Classification Wizard</span>
-              <ChevronRight className="w-4 h-4" />
-            </Link>
-          </div>
+            <div className="pt-4 flex items-center space-x-1.5 text-xs font-bold text-[#5a9330]">
+              <span>Run Wizard</span>
+              <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+            </div>
+          </Link>
 
-          {/* Card 2: Innovation Gap Analyzer */}
-          <div className="bg-white rounded-3xl p-6 border border-slate-200 shadow-sm hover:shadow-md hover:border-sky-300 transition-all flex flex-col justify-between group">
-            <div className="space-y-4">
-              <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-amber-500 to-orange-600 text-white flex items-center justify-center shadow-md shadow-amber-500/20">
-                <Lightbulb className="w-6 h-6" />
+          {/* Card 2: Innovation Gap */}
+          <Link
+            href="/innovation"
+            className="glass-eco rounded-3xl p-6 sm:p-7 border border-[#c8d9c5]/80 shadow-sm hover:shadow-md hover:border-[#5a9330]/60 transition-all flex flex-col justify-between group"
+          >
+            <div className="space-y-3">
+              <div className="w-11 h-11 rounded-2xl bg-[#e2ede0] text-[#5a9330] flex items-center justify-center shadow-sm">
+                <Lightbulb className="w-5 h-5" />
               </div>
-              <div>
-                <h3 className="text-lg font-bold text-slate-900 group-hover:text-amber-700 transition-colors">
-                  Innovation Gap Analyzer
-                </h3>
-                <p className="text-xs text-slate-500 mt-1 leading-relaxed">
-                  Analyze polyherbal ideas (e.g. Turmeric + Neem). Uncover patentable white space across novel delivery, supercritical CO2 extraction, and synergistic ratios.
-                </p>
-              </div>
-              <ul className="text-xs space-y-1.5 text-slate-700">
-                <li className="flex items-center space-x-2">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-amber-500" />
-                  <span>TKDL prior art and landmark revocations</span>
-                </li>
-                <li className="flex items-center space-x-2">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-amber-500" />
-                  <span>SNEDDS, liposomes, phytosome pathways</span>
-                </li>
-                <li className="flex items-center space-x-2">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-amber-500" />
-                  <span>Patentability & ABS scorecards</span>
-                </li>
-              </ul>
+              <h3 className="text-lg font-bold text-[#143825] group-hover:text-[#5a9330] transition-colors">
+                Innovation White Space
+              </h3>
+              <p className="text-xs text-[#4a6152] leading-relaxed">
+                Analyze polyherbal recipes against TKDL prior art to discover patentable white space overcoming Section 3(p) objections.
+              </p>
             </div>
-            <Link
-              href="/innovation"
-              className="mt-6 flex items-center justify-between py-2.5 px-4 rounded-xl bg-slate-50 hover:bg-amber-50 text-slate-700 hover:text-amber-800 font-bold text-xs border border-slate-200 hover:border-amber-200 transition-all"
-            >
-              <span>Analyze Formulation White Space</span>
-              <ChevronRight className="w-4 h-4" />
-            </Link>
-          </div>
+            <div className="pt-4 flex items-center space-x-1.5 text-xs font-bold text-[#5a9330]">
+              <span>Analyze Formulation</span>
+              <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+            </div>
+          </Link>
 
-          {/* Card 3: Interactive Knowledge Graph */}
-          <div className="bg-white rounded-3xl p-6 border border-slate-200 shadow-sm hover:shadow-md hover:border-sky-300 transition-all flex flex-col justify-between group">
-            <div className="space-y-4">
-              <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-indigo-500 to-purple-600 text-white flex items-center justify-center shadow-md shadow-indigo-500/20">
-                <Share2 className="w-6 h-6" />
+          {/* Card 3: Knowledge Graph */}
+          <Link
+            href="/graph"
+            className="glass-eco rounded-3xl p-6 sm:p-7 border border-[#c8d9c5]/80 shadow-sm hover:shadow-md hover:border-[#5a9330]/60 transition-all flex flex-col justify-between group"
+          >
+            <div className="space-y-3">
+              <div className="w-11 h-11 rounded-2xl bg-[#e2ede0] text-[#5a9330] flex items-center justify-center shadow-sm">
+                <Share2 className="w-5 h-5" />
               </div>
-              <div>
-                <h3 className="text-lg font-bold text-slate-900 group-hover:text-indigo-700 transition-colors">
-                  Interactive Knowledge Graph
-                </h3>
-                <p className="text-xs text-slate-500 mt-1 leading-relaxed">
-                  Explore dynamic links across 5 statutory tiers: Plant → Traditional Knowledge → Patent → ABS → Regulation with instant node inspection.
-                </p>
-              </div>
-              <ul className="text-xs space-y-1.5 text-slate-700">
-                <li className="flex items-center space-x-2">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-indigo-500" />
-                  <span>Interactive node-link SVG canvas with zoom</span>
-                </li>
-                <li className="flex items-center space-x-2">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-indigo-500" />
-                  <span>Filter by Ashwagandha, Turmeric, Neem, Brahmi</span>
-                </li>
-                <li className="flex items-center space-x-2">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-indigo-500" />
-                  <span>Statutory lineage and invalidation evidence</span>
-                </li>
-              </ul>
+              <h3 className="text-lg font-bold text-[#143825] group-hover:text-[#5a9330] transition-colors">
+                Knowledge Graph Explorer
+              </h3>
+              <p className="text-xs text-[#4a6152] leading-relaxed">
+                Explore the 5-tier lineage connecting Plants → TKDL Monographs → Patent Precedents → ABS Approval → Drug Regulations.
+              </p>
             </div>
-            <Link
-              href="/graph"
-              className="mt-6 flex items-center justify-between py-2.5 px-4 rounded-xl bg-slate-50 hover:bg-indigo-50 text-slate-700 hover:text-indigo-800 font-bold text-xs border border-slate-200 hover:border-indigo-200 transition-all"
-            >
-              <span>Explore Knowledge Graph</span>
-              <ChevronRight className="w-4 h-4" />
-            </Link>
-          </div>
+            <div className="pt-4 flex items-center space-x-1.5 text-xs font-bold text-[#5a9330]">
+              <span>Explore Graph</span>
+              <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+            </div>
+          </Link>
         </div>
       </section>
 
-      {/* Secondary Features Grid: AI Assistant, Alerts, Admin */}
-      <section className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div className="p-6 bg-gradient-to-br from-sky-50 to-white rounded-3xl border border-sky-100 flex items-start space-x-4">
-          <div className="w-10 h-10 rounded-xl bg-sky-600 text-white flex items-center justify-center shrink-0">
-            <Sparkles className="w-5 h-5" />
-          </div>
-          <div>
-            <h4 className="text-sm font-bold text-slate-900">Explainable AI & Human Escalation</h4>
-            <p className="text-xs text-slate-500 mt-1 leading-relaxed">
-              Every answer includes "Why this answer?" reasoning bullets. If confidence &lt; 60%, the system flags human escalation to certified Patent Attorneys or ABS Officers.
+      {/* 
+        ========================================================================
+        JURISDICTION ISOLATION BANNER: Concise, clean, statutory guarantee
+        ========================================================================
+      */}
+      <section className="glass-eco rounded-3xl p-6 sm:p-8 border border-[#c8d9c5]/80 shadow-sm">
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
+          <div className="space-y-2 max-w-xl">
+            <div className="flex items-center space-x-2">
+              <Globe2 className="w-4 h-4 text-[#5a9330]" />
+              <span className="text-xs font-bold uppercase tracking-wider text-[#143825]">
+                Strict Jurisdiction Isolation
+              </span>
+            </div>
+            <h3 className="text-xl font-bold text-[#143825]">
+              India Statutory Law vs. International Frameworks
+            </h3>
+            <p className="text-xs text-[#4a6152] leading-relaxed">
+              AyurGuru guarantees 100% boundary isolation. Domestic queries follow Patents Act 1970, Rule 158-B, and Biodiversity Act. Export queries adhere to US FDA Botanical Guidelines, EU THMPD, and WIPO.
             </p>
-            <Link href="/assistant" className="inline-flex items-center space-x-1 text-xs font-bold text-sky-700 hover:underline mt-2">
-              <span>Open Assistant</span>
-              <ArrowRight className="w-3 h-3" />
-            </Link>
           </div>
-        </div>
 
-        <div className="p-6 bg-gradient-to-br from-blue-50 to-white rounded-3xl border border-blue-100 flex items-start space-x-4">
-          <div className="w-10 h-10 rounded-xl bg-blue-600 text-white flex items-center justify-center shrink-0">
-            <Bell className="w-5 h-5" />
-          </div>
-          <div>
-            <h4 className="text-sm font-bold text-slate-900">Regulatory Change Alerts</h4>
-            <p className="text-xs text-slate-500 mt-1 leading-relaxed">
-              Live updates on AYUSH notifications, Biodiversity Amendment 2023 rules, CGPDTM patent amendments, and US FDA botanical guidance with actionable checklists.
-            </p>
-            <Link href="/alerts" className="inline-flex items-center space-x-1 text-xs font-bold text-blue-700 hover:underline mt-2">
-              <span>View Active Alerts</span>
-              <ArrowRight className="w-3 h-3" />
-            </Link>
-          </div>
-        </div>
-
-        <div className="p-6 bg-gradient-to-br from-purple-50 to-white rounded-3xl border border-purple-100 flex items-start space-x-4">
-          <div className="w-10 h-10 rounded-xl bg-purple-600 text-white flex items-center justify-center shrink-0">
-            <Database className="w-5 h-5" />
-          </div>
-          <div>
-            <h4 className="text-sm font-bold text-slate-900">Admin Document Ingestion</h4>
-            <p className="text-xs text-slate-500 mt-1 leading-relaxed">
-              Upload statutory gazette notifications and PDFs directly into the hybrid RAG corpus. Browse all indexed citations and legal excerpts.
-            </p>
-            <Link href="/admin" className="inline-flex items-center space-x-1 text-xs font-bold text-purple-700 hover:underline mt-2">
-              <span>Admin Sources</span>
-              <ArrowRight className="w-3 h-3" />
-            </Link>
+          <div className="flex items-center space-x-2.5 shrink-0">
+            <button
+              onClick={() => setJurisdiction("India")}
+              className={`px-5 py-2.5 rounded-full text-xs font-bold transition-all cursor-pointer ${
+                jurisdiction === "India"
+                  ? "bg-[#5a9330] text-white shadow-sm"
+                  : "bg-white/80 text-[#143825] border border-[#c8d9c5] hover:bg-[#e2ede0]"
+              }`}
+            >
+              🇮🇳 India Mode
+            </button>
+            <button
+              onClick={() => setJurisdiction("International")}
+              className={`px-5 py-2.5 rounded-full text-xs font-bold transition-all cursor-pointer ${
+                jurisdiction === "International"
+                  ? "bg-[#5a9330] text-white shadow-sm"
+                  : "bg-white/80 text-[#143825] border border-[#c8d9c5] hover:bg-[#e2ede0]"
+              }`}
+            >
+              🌐 International Mode
+            </button>
           </div>
         </div>
       </section>

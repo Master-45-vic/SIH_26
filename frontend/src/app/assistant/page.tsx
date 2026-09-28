@@ -162,25 +162,25 @@ function AssistantInner() {
   ];
 
   return (
-    <div className="space-y-6">
+    <div className="max-w-6xl mx-auto space-y-6">
       {/* Top Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white p-6 rounded-3xl border border-slate-200/90 shadow-sm">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 glass-eco p-6 rounded-3xl border border-[#c8d9c5]/80 shadow-md">
         <div className="flex items-center space-x-3.5">
-          <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-sky-600 to-blue-700 text-white flex items-center justify-center shadow-md shadow-sky-500/20">
+          <div className="w-12 h-12 rounded-2xl bg-[#5a9330] text-white flex items-center justify-center shadow-md shadow-[#5a9330]/20">
             <Sparkles className="w-6 h-6" />
           </div>
           <div>
             <div className="flex items-center space-x-2">
-              <h2 className="text-xl font-black text-slate-900">AyurGuru AI Assistant</h2>
-              <span className={`text-[10px] font-extrabold uppercase px-2 py-0.5 rounded-full border ${
+              <h2 className="text-xl font-black text-[#143825]">AyurGuru AI Assistant</h2>
+              <span className={`text-[10px] font-extrabold uppercase px-2.5 py-0.5 rounded-full border ${
                 jurisdiction === "India" 
-                  ? "bg-emerald-50 text-emerald-800 border-emerald-300" 
-                  : "bg-purple-50 text-purple-800 border-purple-300"
+                  ? "bg-[#e2f0de] text-[#2c5f1a] border-[#bcd9b5]" 
+                  : "bg-[#eedbf5] text-[#5e2671] border-[#d8b0e5]"
               }`}>
                 {jurisdiction === "India" ? "🇮🇳 India Laws" : "🌐 International Framework"}
               </span>
             </div>
-            <p className="text-xs text-slate-500 mt-0.5">
+            <p className="text-xs text-[#557b64] mt-0.5">
               Strictly isolated statutory reasoning with BM25+Vector hybrid retrieval and evidence verification.
             </p>
           </div>
@@ -203,7 +203,7 @@ function AssistantInner() {
               ]);
             }, 100);
           }}
-          className="flex items-center space-x-1.5 px-3 py-1.5 rounded-xl border border-slate-200 text-xs font-semibold text-slate-600 hover:bg-slate-50 transition-colors self-start sm:self-auto cursor-pointer"
+          className="flex items-center space-x-1.5 px-3.5 py-1.5 rounded-full border border-[#cbdccb] text-xs font-bold text-[#143825] hover:bg-[#deede0] transition-colors self-start sm:self-auto cursor-pointer"
         >
           <RotateCcw className="w-3.5 h-3.5" />
           <span>Clear Chat</span>
@@ -211,15 +211,15 @@ function AssistantInner() {
       </div>
 
       {/* Main Chat Interface */}
-      <div className="bg-white rounded-3xl border border-slate-200/90 shadow-sm overflow-hidden flex flex-col h-[650px]">
+      <div className="glass-eco rounded-3xl border border-[#c8d9c5]/80 shadow-md overflow-hidden flex flex-col h-[650px]">
         {/* Messages Scroll Area */}
-        <div className="flex-1 overflow-y-auto p-4 sm:p-6 space-y-6 bg-slate-50/40">
+        <div className="flex-1 overflow-y-auto p-4 sm:p-6 space-y-6 bg-white/50 backdrop-blur-sm">
           {messages.map((msg) => (
             <div
               key={msg.id}
               className={`flex flex-col ${msg.sender === "user" ? "items-end" : "items-start"}`}
             >
-              <div className="flex items-center space-x-2 mb-1 text-[11px] text-slate-400 font-medium px-1">
+              <div className="flex items-center space-x-2 mb-1 text-[11px] text-[#6d8e7b] font-medium px-1">
                 <span>{msg.sender === "user" ? "You (Innovator)" : "AyurGuru Regulatory Engine"}</span>
                 <span>•</span>
                 <span>{msg.timestamp}</span>
@@ -228,8 +228,8 @@ function AssistantInner() {
               <div
                 className={`max-w-3xl rounded-3xl p-5 shadow-sm text-xs leading-relaxed space-y-4 ${
                   msg.sender === "user"
-                    ? "bg-gradient-to-r from-sky-600 to-blue-700 text-white rounded-tr-sm"
-                    : "bg-white text-slate-800 border border-slate-200/90 rounded-tl-sm"
+                    ? "bg-[#143825] text-[#d6ecd0] rounded-tr-sm"
+                    : "bg-white text-[#143825] border border-[#d6e5d3] rounded-tl-sm"
                 }`}
               >
                 {/* Message Body */}
@@ -239,20 +239,20 @@ function AssistantInner() {
 
                 {/* Evidence Verification Meter for Assistant Messages */}
                 {msg.sender === "assistant" && msg.verification && (
-                  <div className="pt-3 border-t border-slate-100 flex flex-wrap items-center justify-between gap-2">
+                  <div className="pt-3 border-t border-[#e2efe1] flex flex-wrap items-center justify-between gap-2">
                     <div className="flex items-center space-x-2">
                       {msg.verification.is_verified ? (
-                        <div className="flex items-center space-x-1.5 text-emerald-700 font-bold text-xs bg-emerald-50 px-2.5 py-1 rounded-lg border border-emerald-200">
-                          <ShieldCheck className="w-4 h-4 text-emerald-600" />
+                        <div className="flex items-center space-x-1.5 text-[#2c5f1a] font-bold text-xs bg-[#e2f0de] px-2.5 py-1 rounded-full border border-[#bcd9b5]">
+                          <ShieldCheck className="w-4 h-4 text-[#4d8127]" />
                           <span>Statutorily Verified ({Math.round(msg.verification.confidence_score * 100)}% Confidence)</span>
                         </div>
                       ) : (
-                        <div className="flex items-center space-x-1.5 text-amber-800 font-bold text-xs bg-amber-50 px-2.5 py-1 rounded-lg border border-amber-200">
+                        <div className="flex items-center space-x-1.5 text-amber-800 font-bold text-xs bg-amber-50 px-2.5 py-1 rounded-full border border-amber-200">
                           <AlertTriangle className="w-4 h-4 text-amber-600" />
                           <span>Verification Notice: {Math.round(msg.verification.confidence_score * 100)}% Confidence</span>
                         </div>
                       )}
-                      <span className="text-[10px] text-slate-400">
+                      <span className="text-[10px] text-[#6d8e7b]">
                         {msg.verification.jurisdiction_matched ? "✓ Jurisdiction Matched" : "✗ Jurisdiction Mismatch"}
                       </span>
                     </div>
@@ -263,7 +263,7 @@ function AssistantInner() {
                           setActiveEscalationContext(msg);
                           setEscalationModalOpen(true);
                         }}
-                        className="flex items-center space-x-1.5 px-3 py-1 bg-amber-600 hover:bg-amber-700 text-white text-xs font-bold rounded-lg shadow-sm transition-all cursor-pointer"
+                        className="flex items-center space-x-1.5 px-3 py-1 bg-amber-600 hover:bg-amber-700 text-white text-xs font-bold rounded-full shadow-sm transition-all cursor-pointer"
                       >
                         <UserCheck className="w-3.5 h-3.5" />
                         <span>Escalate to Human Expert</span>
@@ -280,8 +280,8 @@ function AssistantInner() {
                 {/* Citations List */}
                 {msg.sender === "assistant" && msg.citations && msg.citations.length > 0 && (
                   <div className="space-y-2 pt-2">
-                    <div className="flex items-center space-x-1.5 text-xs font-bold text-slate-700">
-                      <BookOpen className="w-4 h-4 text-sky-600" />
+                    <div className="flex items-center space-x-1.5 text-xs font-bold text-[#143825]">
+                      <BookOpen className="w-4 h-4 text-[#5a9330]" />
                       <span>{t("verifiedSources")} ({msg.citations.length})</span>
                     </div>
                     <div className="space-y-2">
@@ -297,11 +297,11 @@ function AssistantInner() {
 
           {loading && (
             <div className="flex flex-col items-start">
-              <div className="flex items-center space-x-2 mb-1 text-[11px] text-slate-400 font-medium px-1">
+              <div className="flex items-center space-x-2 mb-1 text-[11px] text-[#6d8e7b] font-medium px-1">
                 <span>AyurGuru Regulatory Engine</span>
               </div>
-              <div className="bg-white border border-slate-200 rounded-3xl p-5 shadow-sm text-xs text-slate-500 flex items-center space-x-3">
-                <div className="animate-spin w-4 h-4 border-2 border-sky-600 border-t-transparent rounded-full" />
+              <div className="bg-white border border-[#d6e5d3] rounded-3xl p-5 shadow-sm text-xs text-[#557b64] flex items-center space-x-3">
+                <div className="animate-spin w-4 h-4 border-2 border-[#5a9330] border-t-transparent rounded-full" />
                 <span>Performing hybrid retrieval, verifying evidence against {jurisdiction} statutory corpus...</span>
               </div>
             </div>
@@ -311,13 +311,13 @@ function AssistantInner() {
         </div>
 
         {/* Sample Prompts Tray */}
-        <div className="px-4 py-2 border-t border-slate-100 bg-white flex items-center space-x-2 overflow-x-auto">
-          <span className="text-[10px] uppercase font-bold text-slate-400 shrink-0">Prompts:</span>
+        <div className="px-4 py-2 border-t border-[#c8d9c5]/60 bg-white/75 backdrop-blur-md flex items-center space-x-2 overflow-x-auto">
+          <span className="text-[10px] uppercase font-bold text-[#5e7164] shrink-0">Prompts:</span>
           {samplePrompts.map((p, idx) => (
             <button
               key={idx}
               onClick={() => handleSend(p)}
-              className="text-[11px] text-slate-600 hover:text-sky-700 bg-slate-100 hover:bg-sky-50 px-2.5 py-1 rounded-lg border border-slate-200 shrink-0 transition-colors cursor-pointer"
+              className="text-[11px] text-[#143825] bg-[#e2ede0] hover:bg-[#d6e8d3] px-3.5 py-1 rounded-full border border-[#c2d8be] shrink-0 transition-colors cursor-pointer"
             >
               {p}
             </button>
@@ -330,20 +330,20 @@ function AssistantInner() {
             e.preventDefault();
             handleSend();
           }}
-          className="p-3 sm:p-4 bg-white border-t border-slate-200 flex items-center space-x-2"
+          className="p-3 sm:p-4 bg-white/85 backdrop-blur-md border-t border-[#c8d9c5]/70 flex items-center space-x-2"
         >
           <input
             type="text"
             value={inputQuery}
             onChange={(e) => setInputQuery(e.target.value)}
             placeholder={`Ask a question under ${jurisdiction} IPR / regulatory framework in ${language}...`}
-            className="flex-1 text-xs sm:text-sm px-4 py-3 rounded-2xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-sky-500 bg-slate-50/50"
+            className="flex-1 text-xs sm:text-sm px-4 py-3 rounded-full border border-[#c8d9c5] focus:outline-none focus:ring-2 focus:ring-[#5a9330] bg-white/70"
             disabled={loading}
           />
           <button
             type="submit"
             disabled={!inputQuery.trim() || loading}
-            className="px-5 py-3 bg-gradient-to-r from-sky-600 to-blue-600 hover:from-sky-700 hover:to-blue-700 text-white rounded-2xl font-bold text-xs shadow-md shadow-sky-500/20 transition-all cursor-pointer disabled:opacity-40 flex items-center space-x-1.5"
+            className="px-6 py-3 bg-[#5a9330] hover:bg-[#4d8127] text-white rounded-full font-bold text-xs shadow-md shadow-[#5a9330]/20 transition-all cursor-pointer disabled:opacity-40 flex items-center space-x-1.5"
           >
             <span>Ask</span>
             <Send className="w-3.5 h-3.5" />

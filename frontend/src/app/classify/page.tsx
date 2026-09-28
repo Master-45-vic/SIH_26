@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
 import confetti from "canvas-confetti";
 import { api } from "@/lib/api";
 import {
@@ -67,31 +68,42 @@ export default function ClassifyPage() {
   };
 
   return (
-    <div className="max-w-4xl mx-auto space-y-8">
+    <div className="relative max-w-4xl mx-auto space-y-8">
+      {/* Decorative Botanical Leaf Accent (Santhika Style) */}
+      <div className="absolute -left-16 -top-4 w-40 h-40 pointer-events-none opacity-60 hidden lg:block">
+        <Image
+          src="/images/leaf_accent.jpg"
+          alt="Ayurvedic Botanical Leaf"
+          width={160}
+          height={160}
+          className="object-contain mix-blend-multiply"
+        />
+      </div>
+
       {/* Header */}
-      <div className="text-center space-y-2">
-        <div className="inline-flex items-center space-x-2 bg-sky-50 text-sky-800 text-xs font-extrabold px-3 py-1 rounded-full border border-sky-200">
-          <Layers className="w-3.5 h-3.5 text-sky-600" />
+      <div className="text-center space-y-2.5">
+        <div className="inline-flex items-center space-x-2 bg-[#e2ede0] text-[#143825] text-xs font-bold px-4 py-1.5 rounded-full border border-[#c2d8be]">
+          <Layers className="w-3.5 h-3.5 text-[#5a9330]" />
           <span>Statutory Product Classification Engine</span>
         </div>
-        <h1 className="text-3xl font-black text-slate-900 tracking-tight">
-          Ayurvedic Regulatory Classification Wizard
+        <h1 className="text-3xl sm:text-4xl font-black text-[#143825] tracking-tight">
+          Ayurvedic Regulatory Classification
         </h1>
-        <p className="text-xs text-slate-500 max-w-xl mx-auto">
-          Accurately classify your product before marketing or licensing into Classical Medicine, Proprietary, Phytopharmaceutical, Ayurveda-Aahar, or Cosmetics.
+        <p className="text-xs sm:text-sm text-[#4a6152] max-w-xl mx-auto">
+          Accurately classify your herbal product into Classical Medicine, Proprietary, Phytopharmaceutical, Ayurveda-Aahar, or Cosmetics under Drugs & Cosmetics Act & FSSAI.
         </p>
       </div>
 
       {/* Progress Stepper Bar */}
       {step <= 5 && (
-        <div className="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm">
-          <div className="flex items-center justify-between text-xs font-bold text-slate-600 mb-2">
+        <div className="glass-eco p-4 rounded-2xl border border-[#c8d9c5]/70 shadow-sm">
+          <div className="flex items-center justify-between text-xs font-bold text-[#143825] mb-2">
             <span>Step {step} of 5</span>
-            <span className="text-sky-600">{Math.round((step / 5) * 100)}% Completed</span>
+            <span className="text-[#5a9330] font-extrabold">{Math.round((step / 5) * 100)}% Completed</span>
           </div>
-          <div className="w-full bg-slate-100 rounded-full h-2">
+          <div className="w-full bg-[#e2ede0] rounded-full h-2.5">
             <div
-              className="bg-gradient-to-r from-sky-500 to-blue-600 h-2 rounded-full transition-all duration-300"
+              className="bg-gradient-to-r from-[#74aa43] to-[#4d7d28] h-2.5 rounded-full transition-all duration-300 shadow-sm"
               style={{ width: `${(step / 5) * 100}%` }}
             />
           </div>
@@ -99,41 +111,41 @@ export default function ClassifyPage() {
       )}
 
       {/* Wizard Card */}
-      <div className="bg-white rounded-3xl p-6 sm:p-10 border border-slate-200 shadow-sm relative">
+      <div className="glass-eco rounded-3xl p-6 sm:p-10 border border-[#c8d9c5]/80 shadow-md relative">
         {/* Step 1: Product Name & Ingredients */}
         {step === 1 && (
           <div className="space-y-6 animate-in fade-in duration-200">
             <div>
-              <h3 className="text-lg font-bold text-slate-900">1. Product Identity & Herbal Ingredients</h3>
-              <p className="text-xs text-slate-500">Provide the commercial name and botanical composition.</p>
+              <h3 className="text-xl font-bold text-[#143825]">1. Product Identity & Herbal Ingredients</h3>
+              <p className="text-xs text-[#5e7164]">Provide the commercial name and botanical composition.</p>
             </div>
 
             <div className="space-y-4">
               <div>
-                <label className="block text-xs font-bold text-slate-700 mb-1.5">
+                <label className="block text-xs font-bold text-[#143825] mb-1.5">
                   Proposed Product Name / Brand
                 </label>
                 <input
                   type="text"
                   value={productName}
                   onChange={(e) => setProductName(e.target.value)}
-                  className="w-full text-xs sm:text-sm px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-sky-500"
+                  className="w-full text-xs sm:text-sm px-4 py-3 rounded-2xl border border-[#c8d9c5] focus:outline-none focus:ring-2 focus:ring-[#5a9330] bg-white/80"
                   placeholder="e.g. CurcuVeda Forte"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-bold text-slate-700 mb-1.5">
+                <label className="block text-xs font-bold text-[#143825] mb-1.5">
                   Herbal Ingredients List (comma-separated)
                 </label>
                 <textarea
                   rows={3}
                   value={ingredientsInput}
                   onChange={(e) => setIngredientsInput(e.target.value)}
-                  className="w-full text-xs sm:text-sm px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-sky-500"
+                  className="w-full text-xs sm:text-sm px-4 py-3 rounded-2xl border border-[#c8d9c5] focus:outline-none focus:ring-2 focus:ring-[#5a9330] bg-white/80"
                   placeholder="e.g. Ashwagandha, Turmeric, Neem, Piperine"
                 />
-                <p className="text-[11px] text-slate-400 mt-1">
+                <p className="text-[11px] text-[#5e7164] mt-1">
                   Specify Sanskrit, common, or botanical names.
                 </p>
               </div>
@@ -143,7 +155,7 @@ export default function ClassifyPage() {
               <button
                 onClick={() => setStep(2)}
                 disabled={!productName.trim() || !ingredientsInput.trim()}
-                className="flex items-center space-x-1.5 px-6 py-2.5 bg-sky-600 hover:bg-sky-700 text-white rounded-xl text-xs font-bold transition-all cursor-pointer disabled:opacity-50"
+                className="flex items-center space-x-1.5 px-7 py-3 bg-[#5a9330] hover:bg-[#4d7d28] text-white rounded-full text-xs font-bold transition-all cursor-pointer disabled:opacity-50 shadow-sm"
               >
                 <span>Continue</span>
                 <ArrowRight className="w-4 h-4" />
@@ -156,8 +168,8 @@ export default function ClassifyPage() {
         {step === 2 && (
           <div className="space-y-6 animate-in fade-in duration-200">
             <div>
-              <h3 className="text-lg font-bold text-slate-900">2. Authoritative Treatise Reference</h3>
-              <p className="text-xs text-slate-500">
+              <h3 className="text-xl font-bold text-[#143825]">2. Authoritative Treatise Reference</h3>
+              <p className="text-xs text-[#5e7164]">
                 Are the formulation ingredients and process verbatim from the First Schedule 54 books?
               </p>
             </div>
@@ -167,15 +179,15 @@ export default function ClassifyPage() {
                 onClick={() => setIsTextual(true)}
                 className={`p-5 rounded-2xl border-2 cursor-pointer transition-all ${
                   isTextual
-                    ? "border-sky-600 bg-sky-50/50 shadow-sm"
-                    : "border-slate-200 hover:border-slate-300"
+                    ? "border-[#5a9330] bg-[#eef6ec] shadow-sm"
+                    : "border-[#c8d9c5]/70 bg-white/70 hover:border-[#5a9330]/50"
                 }`}
               >
                 <div className="flex items-center justify-between mb-2">
-                  <span className="font-bold text-xs text-slate-900">Yes, Verbatim Classical Recipe</span>
-                  {isTextual && <CheckCircle className="w-4 h-4 text-sky-600" />}
+                  <span className="font-bold text-xs text-[#143825]">Yes, Verbatim Classical Recipe</span>
+                  {isTextual && <CheckCircle className="w-4 h-4 text-[#5a9330]" />}
                 </div>
-                <p className="text-[11px] text-slate-500 leading-relaxed">
+                <p className="text-[11px] text-[#4a6152] leading-relaxed">
                   Mentioned in Charaka Samhita, Sushruta Samhita, Sharangadhara Samhita, Bhavaprakasha, or other First Schedule texts without modifying ingredient ratios.
                 </p>
               </div>
@@ -184,15 +196,15 @@ export default function ClassifyPage() {
                 onClick={() => setIsTextual(false)}
                 className={`p-5 rounded-2xl border-2 cursor-pointer transition-all ${
                   !isTextual
-                    ? "border-sky-600 bg-sky-50/50 shadow-sm"
-                    : "border-slate-200 hover:border-slate-300"
+                    ? "border-[#5a9330] bg-[#eef6ec] shadow-sm"
+                    : "border-[#c8d9c5]/70 bg-white/70 hover:border-[#5a9330]/50"
                 }`}
               >
                 <div className="flex items-center justify-between mb-2">
-                  <span className="font-bold text-xs text-slate-900">No, Modified or Proprietary Formulation</span>
-                  {!isTextual && <CheckCircle className="w-4 h-4 text-sky-600" />}
+                  <span className="font-bold text-xs text-[#143825]">No, Modified or Proprietary Formulation</span>
+                  {!isTextual && <CheckCircle className="w-4 h-4 text-[#5a9330]" />}
                 </div>
-                <p className="text-[11px] text-slate-500 leading-relaxed">
+                <p className="text-[11px] text-[#4a6152] leading-relaxed">
                   Modified ingredient ratios, modern excipients, combination of multiple recipes, or novel extraction solvents.
                 </p>
               </div>
@@ -201,14 +213,14 @@ export default function ClassifyPage() {
             <div className="flex justify-between pt-4">
               <button
                 onClick={() => setStep(1)}
-                className="flex items-center space-x-1.5 px-4 py-2.5 text-slate-600 hover:bg-slate-100 rounded-xl text-xs font-semibold cursor-pointer"
+                className="flex items-center space-x-1.5 px-5 py-2.5 text-[#143825] hover:bg-[#e2ede0] rounded-full text-xs font-semibold cursor-pointer"
               >
                 <ArrowLeft className="w-4 h-4" />
                 <span>Back</span>
               </button>
               <button
                 onClick={() => setStep(3)}
-                className="flex items-center space-x-1.5 px-6 py-2.5 bg-sky-600 hover:bg-sky-700 text-white rounded-xl text-xs font-bold transition-all cursor-pointer"
+                className="flex items-center space-x-1.5 px-7 py-3 bg-[#5a9330] hover:bg-[#4d7d28] text-white rounded-full text-xs font-bold transition-all cursor-pointer shadow-sm"
               >
                 <span>Continue</span>
                 <ArrowRight className="w-4 h-4" />
@@ -221,8 +233,8 @@ export default function ClassifyPage() {
         {step === 3 && (
           <div className="space-y-6 animate-in fade-in duration-200">
             <div>
-              <h3 className="text-lg font-bold text-slate-900">3. Therapeutic & Commercial Claims</h3>
-              <p className="text-xs text-slate-500">What is the intended use claimed on the label and marketing?</p>
+              <h3 className="text-xl font-bold text-[#143825]">3. Therapeutic & Commercial Claims</h3>
+              <p className="text-xs text-[#5e7164]">What is the intended use claimed on the label and marketing?</p>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -253,15 +265,15 @@ export default function ClassifyPage() {
                   onClick={() => setClaimsType(opt.id)}
                   className={`p-4 rounded-2xl border-2 cursor-pointer transition-all ${
                     claimsType === opt.id
-                      ? "border-sky-600 bg-sky-50/50 shadow-sm"
-                      : "border-slate-200 hover:border-slate-300"
+                      ? "border-[#5a9330] bg-[#eef6ec] shadow-sm"
+                      : "border-[#c8d9c5]/70 bg-white/70 hover:border-[#5a9330]/50"
                   }`}
                 >
                   <div className="flex items-center justify-between mb-1">
-                    <span className="font-bold text-xs text-slate-900">{opt.label}</span>
-                    {claimsType === opt.id && <CheckCircle className="w-4 h-4 text-sky-600" />}
+                    <span className="font-bold text-xs text-[#143825]">{opt.label}</span>
+                    {claimsType === opt.id && <CheckCircle className="w-4 h-4 text-[#5a9330]" />}
                   </div>
-                  <p className="text-[11px] text-slate-500">{opt.desc}</p>
+                  <p className="text-[11px] text-[#4a6152]">{opt.desc}</p>
                 </div>
               ))}
             </div>
@@ -269,14 +281,14 @@ export default function ClassifyPage() {
             <div className="flex justify-between pt-4">
               <button
                 onClick={() => setStep(2)}
-                className="flex items-center space-x-1.5 px-4 py-2.5 text-slate-600 hover:bg-slate-100 rounded-xl text-xs font-semibold cursor-pointer"
+                className="flex items-center space-x-1.5 px-5 py-2.5 text-[#143825] hover:bg-[#e2ede0] rounded-full text-xs font-semibold cursor-pointer"
               >
                 <ArrowLeft className="w-4 h-4" />
                 <span>Back</span>
               </button>
               <button
                 onClick={() => setStep(4)}
-                className="flex items-center space-x-1.5 px-6 py-2.5 bg-sky-600 hover:bg-sky-700 text-white rounded-xl text-xs font-bold transition-all cursor-pointer"
+                className="flex items-center space-x-1.5 px-7 py-3 bg-[#5a9330] hover:bg-[#4d7d28] text-white rounded-full text-xs font-bold transition-all cursor-pointer shadow-sm"
               >
                 <span>Continue</span>
                 <ArrowRight className="w-4 h-4" />
@@ -289,8 +301,8 @@ export default function ClassifyPage() {
         {step === 4 && (
           <div className="space-y-6 animate-in fade-in duration-200">
             <div>
-              <h3 className="text-lg font-bold text-slate-900">4. Dosage Form & Purification</h3>
-              <p className="text-xs text-slate-500">Select the finished pharmaceutical or food matrix.</p>
+              <h3 className="text-xl font-bold text-[#143825]">4. Dosage Form & Purification</h3>
+              <p className="text-xs text-[#5e7164]">Select the finished pharmaceutical or food matrix.</p>
             </div>
 
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
@@ -308,10 +320,10 @@ export default function ClassifyPage() {
                   key={f}
                   type="button"
                   onClick={() => setForm(f)}
-                  className={`p-3 rounded-xl border-2 text-xs font-bold text-center transition-all cursor-pointer ${
+                  className={`p-3 rounded-2xl border-2 text-xs font-bold text-center transition-all cursor-pointer ${
                     form === f
-                      ? "border-sky-600 bg-sky-50 text-sky-800 shadow-sm"
-                      : "border-slate-200 text-slate-700 hover:border-slate-300"
+                      ? "border-[#5a9330] bg-[#eef6ec] text-[#143825] shadow-sm"
+                      : "border-[#c8d9c5]/70 bg-white/70 text-[#4a6152] hover:border-[#5a9330]/50"
                   }`}
                 >
                   {f}
@@ -320,19 +332,19 @@ export default function ClassifyPage() {
             </div>
 
             {/* Phytopharmaceutical checkbox */}
-            <div className="bg-slate-50 p-4 rounded-2xl border border-slate-200">
+            <div className="bg-[#eef6ec]/60 p-4 rounded-2xl border border-[#c8d9c5]">
               <label className="flex items-start space-x-3 cursor-pointer">
                 <input
                   type="checkbox"
                   checked={isPurified}
                   onChange={(e) => setIsPurified(e.target.checked)}
-                  className="mt-0.5 rounded border-slate-300 text-sky-600 focus:ring-sky-500"
+                  className="mt-0.5 rounded border-[#c8d9c5] text-[#5a9330] focus:ring-[#5a9330]"
                 />
                 <div>
-                  <span className="text-xs font-bold text-slate-800">
+                  <span className="text-xs font-bold text-[#143825]">
                     Purified fraction with defined chemical biomarkers (CDSCO Rule 122E)?
                   </span>
-                  <p className="text-[11px] text-slate-500 mt-0.5">
+                  <p className="text-[11px] text-[#5e7164] mt-0.5">
                     Check this if you have standardized a purified fraction with at least 4 active chemical markers or high purity.
                   </p>
                 </div>
@@ -342,14 +354,14 @@ export default function ClassifyPage() {
             <div className="flex justify-between pt-4">
               <button
                 onClick={() => setStep(3)}
-                className="flex items-center space-x-1.5 px-4 py-2.5 text-slate-600 hover:bg-slate-100 rounded-xl text-xs font-semibold cursor-pointer"
+                className="flex items-center space-x-1.5 px-5 py-2.5 text-[#143825] hover:bg-[#e2ede0] rounded-full text-xs font-semibold cursor-pointer"
               >
                 <ArrowLeft className="w-4 h-4" />
                 <span>Back</span>
               </button>
               <button
                 onClick={() => setStep(5)}
-                className="flex items-center space-x-1.5 px-6 py-2.5 bg-sky-600 hover:bg-sky-700 text-white rounded-xl text-xs font-bold transition-all cursor-pointer"
+                className="flex items-center space-x-1.5 px-7 py-3 bg-[#5a9330] hover:bg-[#4d7d28] text-white rounded-full text-xs font-bold transition-all cursor-pointer shadow-sm"
               >
                 <span>Continue</span>
                 <ArrowRight className="w-4 h-4" />
@@ -362,8 +374,8 @@ export default function ClassifyPage() {
         {step === 5 && (
           <div className="space-y-6 animate-in fade-in duration-200">
             <div>
-              <h3 className="text-lg font-bold text-slate-900">5. Route of Administration</h3>
-              <p className="text-xs text-slate-500">Confirm intended anatomical delivery route.</p>
+              <h3 className="text-xl font-bold text-[#143825]">5. Route of Administration</h3>
+              <p className="text-xs text-[#5e7164]">Confirm intended anatomical delivery route.</p>
             </div>
 
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
@@ -372,10 +384,10 @@ export default function ClassifyPage() {
                   key={r}
                   type="button"
                   onClick={() => setRoute(r)}
-                  className={`p-3 rounded-xl border-2 text-xs font-bold text-center transition-all cursor-pointer ${
+                  className={`p-3 rounded-2xl border-2 text-xs font-bold text-center transition-all cursor-pointer ${
                     route === r
-                      ? "border-sky-600 bg-sky-50 text-sky-800 shadow-sm"
-                      : "border-slate-200 text-slate-700 hover:border-slate-300"
+                      ? "border-[#5a9330] bg-[#eef6ec] text-[#143825] shadow-sm"
+                      : "border-[#c8d9c5]/70 bg-white/70 text-[#4a6152] hover:border-[#5a9330]/50"
                   }`}
                 >
                   {r}
@@ -383,8 +395,8 @@ export default function ClassifyPage() {
               ))}
             </div>
 
-            <div className="bg-sky-50/60 p-4 rounded-2xl border border-sky-200/80 text-xs text-slate-700 space-y-1">
-              <div className="font-bold text-sky-900">Summary Before Analysis:</div>
+            <div className="bg-[#eef6ec] p-4 rounded-2xl border border-[#c2d8be] text-xs text-[#143825] space-y-1">
+              <div className="font-bold text-[#143825]">Summary Before Analysis:</div>
               <div>Product: <span className="font-semibold">{productName}</span></div>
               <div>Ingredients: <span className="font-semibold">{ingredientsInput}</span></div>
               <div>Form: <span className="font-semibold">{form}</span> ({route})</div>
@@ -393,7 +405,7 @@ export default function ClassifyPage() {
             <div className="flex justify-between pt-4">
               <button
                 onClick={() => setStep(4)}
-                className="flex items-center space-x-1.5 px-4 py-2.5 text-slate-600 hover:bg-slate-100 rounded-xl text-xs font-semibold cursor-pointer"
+                className="flex items-center space-x-1.5 px-5 py-2.5 text-[#143825] hover:bg-[#e2ede0] rounded-full text-xs font-semibold cursor-pointer"
               >
                 <ArrowLeft className="w-4 h-4" />
                 <span>Back</span>
@@ -401,7 +413,7 @@ export default function ClassifyPage() {
               <button
                 onClick={handleSubmit}
                 disabled={loading}
-                className="flex items-center space-x-1.5 px-8 py-3 bg-gradient-to-r from-sky-600 to-blue-600 hover:from-sky-700 hover:to-blue-700 text-white rounded-xl text-xs font-bold shadow-md shadow-sky-500/20 transition-all cursor-pointer disabled:opacity-50"
+                className="flex items-center space-x-2 px-8 py-3 bg-[#5a9330] hover:bg-[#4d7d28] text-white rounded-full text-xs font-bold shadow-md shadow-[#5a9330]/20 transition-all cursor-pointer disabled:opacity-50"
               >
                 <Sparkles className="w-4 h-4" />
                 <span>{loading ? "Analyzing Statutorily..." : "Generate Classification"}</span>
@@ -413,13 +425,13 @@ export default function ClassifyPage() {
         {/* Step 6: Classification Result Dossier */}
         {step === 6 && result && (
           <div className="space-y-6 animate-in fade-in duration-300">
-            <div className="text-center space-y-2 pb-4 border-b border-slate-100">
-              <span className="text-[11px] font-extrabold uppercase tracking-wider text-sky-600 bg-sky-50 px-3 py-1 rounded-full border border-sky-200">
-                Official Classification Report
+            <div className="text-center space-y-2 pb-4 border-b border-[#c8d9c5]/60">
+              <span className="text-[11px] font-extrabold uppercase tracking-wider text-[#143825] bg-[#e2ede0] px-4 py-1 rounded-full border border-[#c2d8be]">
+                Official Statutory Classification Report
               </span>
-              <h2 className="text-2xl font-black text-slate-900">{result.product_name}</h2>
+              <h2 className="text-2xl sm:text-3xl font-black text-[#143825] mt-1">{result.product_name}</h2>
               <div className="inline-block mt-2">
-                <span className="text-sm font-black uppercase tracking-wide bg-gradient-to-r from-sky-600 to-blue-700 text-white px-4 py-1.5 rounded-xl shadow-sm">
+                <span className="text-sm font-black uppercase tracking-wide bg-[#5a9330] text-white px-5 py-2 rounded-full shadow-sm">
                   {result.classification}
                 </span>
               </div>
@@ -428,29 +440,29 @@ export default function ClassifyPage() {
             {/* Key Dossier Cards */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {/* Authority & Section */}
-              <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
-                <div className="flex items-center space-x-2 text-xs font-bold text-slate-900">
-                  <Building className="w-4 h-4 text-sky-600" />
-                  <span>Regulatory Authority</span>
+              <div className="p-5 rounded-2xl bg-white/80 border border-[#c8d9c5]/80 space-y-2 shadow-sm">
+                <div className="flex items-center space-x-2 text-xs font-bold text-[#143825]">
+                  <Building className="w-4 h-4 text-[#5a9330]" />
+                  <span>Regulatory Licensing Authority</span>
                 </div>
-                <p className="text-xs text-slate-700 font-medium leading-relaxed">
+                <p className="text-xs text-[#143825] font-semibold leading-relaxed">
                   {result.licensing_authority}
                 </p>
-                <div className="text-[11px] text-slate-500 pt-1 border-t border-slate-200/60 font-mono">
+                <div className="text-[11px] text-[#5e7164] pt-2 border-t border-[#c8d9c5]/50 font-mono">
                   {result.statutory_reference}
                 </div>
               </div>
 
               {/* Mandatory Forms */}
-              <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
-                <div className="flex items-center space-x-2 text-xs font-bold text-slate-900">
-                  <ClipboardList className="w-4 h-4 text-emerald-600" />
-                  <span>Mandatory Statutory Forms</span>
+              <div className="p-5 rounded-2xl bg-white/80 border border-[#c8d9c5]/80 space-y-2 shadow-sm">
+                <div className="flex items-center space-x-2 text-xs font-bold text-[#143825]">
+                  <ClipboardList className="w-4 h-4 text-[#5a9330]" />
+                  <span>Mandatory Statutory Filings</span>
                 </div>
-                <ul className="text-xs text-slate-700 space-y-1">
+                <ul className="text-xs text-[#143825] space-y-1.5">
                   {result.mandatory_forms.map((f: string, idx: number) => (
-                    <li key={idx} className="flex items-center space-x-1.5 font-medium">
-                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                    <li key={idx} className="flex items-center space-x-2 font-medium">
+                      <span className="w-2 h-2 rounded-full bg-[#5a9330]" />
                       <span>{f}</span>
                     </li>
                   ))}
@@ -459,23 +471,23 @@ export default function ClassifyPage() {
             </div>
 
             {/* Safety & Pre-clinical Requirements */}
-            <div className="p-4 rounded-2xl bg-amber-50/60 border border-amber-200/80 space-y-1.5">
-              <span className="text-xs font-bold text-amber-900 flex items-center space-x-1.5">
-                <ShieldCheck className="w-4 h-4 text-amber-700" />
-                <span>Safety & Toxicity Requirements</span>
+            <div className="p-5 rounded-2xl bg-[#fff8eb] border border-[#f1d7a8] space-y-2 shadow-sm">
+              <span className="text-xs font-bold text-[#7c4a03] flex items-center space-x-1.5">
+                <ShieldCheck className="w-4 h-4 text-[#b45309]" />
+                <span>Safety & Toxicity Requirements (Rule 158-B / FSSAI)</span>
               </span>
-              <p className="text-xs text-slate-700 leading-relaxed font-sans">
+              <p className="text-xs text-[#5e7164] leading-relaxed font-sans">
                 {result.safety_data_required}
               </p>
             </div>
 
             {/* Statutory Reasoning */}
-            <div className="p-5 rounded-2xl bg-sky-50/50 border border-sky-200/80 space-y-2.5">
-              <span className="text-xs font-bold text-sky-900">Statutory Reasoning Behind Classification:</span>
+            <div className="p-5 rounded-2xl bg-[#eef6ec] border border-[#c2d8be] space-y-3">
+              <span className="text-xs font-bold text-[#143825]">Statutory Reasoning Behind Classification:</span>
               <div className="space-y-2">
                 {result.reasoning.map((r: string, idx: number) => (
-                  <div key={idx} className="flex items-start space-x-2 text-xs text-slate-800 leading-relaxed">
-                    <CheckCircle className="w-4 h-4 text-sky-600 shrink-0 mt-0.5" />
+                  <div key={idx} className="flex items-start space-x-2 text-xs text-[#143825] leading-relaxed">
+                    <CheckCircle className="w-4 h-4 text-[#5a9330] shrink-0 mt-0.5" />
                     <span>{r}</span>
                   </div>
                 ))}
@@ -483,10 +495,10 @@ export default function ClassifyPage() {
             </div>
 
             {/* Bottom Actions */}
-            <div className="flex flex-wrap items-center justify-between gap-3 pt-4 border-t border-slate-100">
+            <div className="flex flex-wrap items-center justify-between gap-3 pt-4 border-t border-[#c8d9c5]/60">
               <button
                 onClick={resetForm}
-                className="flex items-center space-x-1.5 px-4 py-2 border border-slate-200 rounded-xl text-xs font-bold text-slate-600 hover:bg-slate-50 transition-colors cursor-pointer"
+                className="flex items-center space-x-1.5 px-5 py-2.5 border border-[#c8d9c5] rounded-full text-xs font-bold text-[#143825] hover:bg-[#e2ede0] transition-colors cursor-pointer"
               >
                 <RotateCcw className="w-3.5 h-3.5" />
                 <span>Classify Another Formulation</span>
@@ -494,7 +506,7 @@ export default function ClassifyPage() {
 
               <button
                 onClick={() => window.print()}
-                className="flex items-center space-x-1.5 px-5 py-2 bg-slate-900 hover:bg-slate-800 text-white rounded-xl text-xs font-bold transition-all cursor-pointer"
+                className="flex items-center space-x-2 px-6 py-2.5 bg-[#143825] hover:bg-[#0c2417] text-white rounded-full text-xs font-bold transition-all cursor-pointer shadow-sm"
               >
                 <FileText className="w-3.5 h-3.5" />
                 <span>Export Classification Dossier</span>

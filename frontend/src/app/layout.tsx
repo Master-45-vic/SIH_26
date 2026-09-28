@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import "./globals.css";
 import { JurisdictionProvider } from "@/context/JurisdictionContext";
 import { LanguageProvider } from "@/context/LanguageContext";
@@ -7,9 +8,9 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "AyurGuru | AI-Powered Multilingual Ayurveda IPR & Regulatory Assistant",
+  title: "AyurGuru | AI-Powered Ayurveda IPR & Regulatory Assistant",
   description:
-    "Next-generation AI assistant helping Ayurveda researchers, startups, MSMEs, and cultivators navigate Patents, TKDL, ABS compliance, AYUSH licensing, and FSSAI regulations.",
+    "Natural wisdom for modern innovation. AI-powered Ayurveda IPR and statutory compliance navigation for patents, biodiversity, and regulatory clearance.",
 };
 
 export default function RootLayout({
@@ -19,15 +20,29 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="min-h-screen flex flex-col bg-gradient-to-b from-sky-50/50 via-slate-50 to-blue-50/30 text-slate-900 antialiased selection:bg-sky-200 selection:text-sky-900 font-sans">
+      <body className="min-h-screen flex flex-col bg-[#edf5eb] text-[#143825] antialiased selection:bg-[#c9e5bf] selection:text-[#113120] relative">
+        {/* Persistent High-Res Ambient Ayurveda Nature & Botanical Background */}
+        <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+          <Image
+            src="/images/ayurveda_garden_mist.jpg"
+            alt="Ayurvedic Botanical Environment"
+            fill
+            priority
+            className="object-cover object-center opacity-30 filter blur-[0.5px]"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#edf5eb]/85 via-[#edf5eb]/80 to-[#edf5eb]/90" />
+        </div>
+
         <JurisdictionProvider>
           <LanguageProvider>
             <AuthProvider>
-              <Navbar />
-              <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
-                {children}
-              </main>
-              <Footer />
+              <div className="relative z-10 flex flex-col min-h-screen">
+                <Navbar />
+                <main className="flex-1 w-full mx-auto">
+                  {children}
+                </main>
+                <Footer />
+              </div>
             </AuthProvider>
           </LanguageProvider>
         </JurisdictionProvider>

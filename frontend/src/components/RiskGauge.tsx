@@ -17,45 +17,45 @@ export const RiskGauge: React.FC<RiskGaugeProps> = ({ label, score, type = "pate
   const strokeDashoffset = circumference - (clampedScore / 100) * circumference;
 
   // Color mapping based on metric type
-  let strokeColor = "#0284c7"; // sky-600
+  let strokeColor = "#5a9330"; // herbal green
   let badgeText = "Moderate";
-  let badgeColor = "bg-sky-50 text-sky-700 border-sky-200";
+  let badgeColor = "bg-[#eef6ec] text-[#2d5c1e] border-[#c2d8be]";
 
   if (type === "patentability" || type === "commercial") {
     if (clampedScore >= 75) {
-      strokeColor = "#10b981"; // emerald-500
+      strokeColor = "#5a9330"; // herbal green
       badgeText = "High Potential";
-      badgeColor = "bg-emerald-50 text-emerald-700 border-emerald-200";
+      badgeColor = "bg-[#eef6ec] text-[#2d5c1e] border-[#c2d8be]";
     } else if (clampedScore >= 50) {
-      strokeColor = "#f59e0b"; // amber-500
+      strokeColor = "#d97706"; // warm amber
       badgeText = "Viable";
-      badgeColor = "bg-amber-50 text-amber-700 border-amber-200";
+      badgeColor = "bg-[#fff8eb] text-[#92400e] border-[#fde68a]";
     } else {
-      strokeColor = "#f43f5e"; // rose-500
+      strokeColor = "#dc2626"; // muted red
       badgeText = "Challenging";
-      badgeColor = "bg-rose-50 text-rose-700 border-rose-200";
+      badgeColor = "bg-[#fef2f2] text-[#991b1b] border-[#fecaca]";
     }
   } else {
     // For Risk (TKDL or ABS), high score = high danger!
     if (clampedScore >= 70) {
-      strokeColor = "#e11d48"; // rose-600
+      strokeColor = "#dc2626"; // rose-600
       badgeText = "High Risk";
-      badgeColor = "bg-rose-50 text-rose-700 border-rose-200";
+      badgeColor = "bg-[#fef2f2] text-[#991b1b] border-[#fecaca]";
     } else if (clampedScore >= 40) {
-      strokeColor = "#f59e0b"; // amber-500
+      strokeColor = "#d97706"; // amber-500
       badgeText = "Moderate Risk";
-      badgeColor = "bg-amber-50 text-amber-700 border-amber-200";
+      badgeColor = "bg-[#fff8eb] text-[#92400e] border-[#fde68a]";
     } else {
-      strokeColor = "#10b981"; // emerald-500
+      strokeColor = "#5a9330"; // herbal green
       badgeText = "Low Risk";
-      badgeColor = "bg-emerald-50 text-emerald-700 border-emerald-200";
+      badgeColor = "bg-[#eef6ec] text-[#2d5c1e] border-[#c2d8be]";
     }
   }
 
   const svgDim = (radius + strokeWidth) * 2;
 
   return (
-    <div className="bg-white rounded-2xl border border-slate-200/90 p-4 shadow-sm flex flex-col items-center justify-center text-center transition-all hover:shadow-md hover:border-slate-300">
+    <div className="bg-white/90 rounded-2xl border border-[#c8d9c5]/80 p-4 shadow-sm flex flex-col items-center justify-center text-center transition-all hover:shadow-md hover:border-[#5a9330]/60">
       <div className="relative flex items-center justify-center mb-2">
         <svg width={svgDim} height={svgDim} className="transform -rotate-90">
           {/* Background circle */}
@@ -63,7 +63,7 @@ export const RiskGauge: React.FC<RiskGaugeProps> = ({ label, score, type = "pate
             cx={svgDim / 2}
             cy={svgDim / 2}
             r={radius}
-            stroke="#e2e8f0"
+            stroke="#e2ede0"
             strokeWidth={strokeWidth}
             fill="transparent"
           />
@@ -83,14 +83,14 @@ export const RiskGauge: React.FC<RiskGaugeProps> = ({ label, score, type = "pate
         </svg>
 
         <div className="absolute inset-0 flex flex-col items-center justify-center">
-          <span className="text-xl font-black text-slate-900 font-mono tracking-tight">
+          <span className="text-xl font-black text-[#143825] font-mono tracking-tight">
             {Math.round(clampedScore)}%
           </span>
         </div>
       </div>
 
-      <h5 className="text-xs font-bold text-slate-800 line-clamp-1">{label}</h5>
-      <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full border mt-1.5 ${badgeColor}`}>
+      <h5 className="text-xs font-bold text-[#143825] line-clamp-1">{label}</h5>
+      <span className={`text-[10px] font-bold px-2.5 py-0.5 rounded-full border mt-1.5 ${badgeColor}`}>
         {badgeText}
       </span>
     </div>
