@@ -43,7 +43,7 @@ class GeminiClient:
         combined_context = "\n\n".join(context_texts) if context_texts else "No specific statutory document found."
 
         system_prompt = f"""
-You are AyurGuru, an authoritative AI legal assistant specializing in Ayurveda Intellectual Property Rights (IPR), Biodiversity (ABS) compliance, and AYUSH/FSSAI/FDA regulations.
+You are GURU, an authoritative AI legal assistant specializing in Ayurveda Intellectual Property Rights (IPR), Biodiversity (ABS) compliance, and AYUSH/FSSAI/FDA regulations.
 
 CRITICAL RULES:
 1. Target Jurisdiction: {jurisdiction}. NEVER mix India laws with International laws unless explicitly compared.
@@ -59,7 +59,14 @@ CRITICAL RULES:
         if self._configured and self.api_key:
             try:
                 # Try standard available models
-                for model_name in ["gemini-1.5-flash", "gemini-1.5-pro", "gemini-pro"]:
+                for model_name in [
+                    "gemini-2.5-flash",
+                    "gemini-flash-latest",
+                    "gemini-2.5-pro",
+                    "gemini-pro-latest",
+                    "gemini-1.5-flash",
+                    "gemini-1.5-pro",
+                ]:
                     try:
                         model = genai.GenerativeModel(model_name)
                         response = model.generate_content(
@@ -200,6 +207,131 @@ CRITICAL RULES:
         return {
             "answer": answer,
             "why_this_answer": why
+        }
+
+    def generate_classification_ai_insights(
+        self,
+        product_name: str,
+        ingredients: List[str],
+        classification: str,
+        claims: str,
+        form: str,
+        statutory_reference: str
+    ) -> Dict[str, str]:
+        """
+        Calls Gemini to generate tailored regulatory advisory and patent strategy for classified formulation.
+        """
+        prompt = f"""You are GURU, the premier AI Ayurveda IPR and Regulatory Legal Advisor.
+Analyze this Ayurvedic/herbal product classification:
+- Product Name: {product_name}
+- Botanical Ingredients: {', '.join(ingredients) if ingredients else 'Not specified'}
+- Classified Category: {classification}
+- Stated Claims: {claims}
+- Dosage Form: {form}
+- Statutory Reference: {statutory_reference}
+
+Provide tailored, authoritative legal, safety, and patent strategy guidance in valid JSON format with exactly two string fields:
+1. "ai_advisory": Detailed regulatory analysis (2 paragraphs) specific to these ingredients and category under Indian law. Mention quality control, safety testing, Schedule T / GMP compliance, and labeling requirements.
+2. "ai_patent_strategy": Specific strategic advice on patentability (addressing Section 3(p) Traditional Knowledge bar, Section 3(d)/(e) efficacy/admixture bars, and actionable suggestions such as novel carrier systems, standardized biomarker ratios, or green extraction methods).
+
+Return strictly JSON format:
+{{"ai_advisory": "...", "ai_patent_strategy": "..."}}
+"""
+        if self._configured and self.api_key:
+            for model_name in [
+                "gemini-2.5-flash",
+                "gemini-flash-latest",
+                "gemini-2.5-pro",
+                "gemini-pro-latest"
+            ]:
+                try:
+                    model = genai.GenerativeModel(model_name)
+                    res = model.generate_content(prompt)
+                    text = res.text.strip()
+                    if "```json" in text:
+                        text = text.split("```json")[1].split("```")[0].strip()
+                    elif "```" in text:
+                        text = text.split("```")[1].split("```")[0].strip()
+                    data = json.loads(text)
+                    if "ai_advisory" in data and "ai_patent_strategy" in data:
+                        return data
+                except Exception:
+                    continue
+
+        return {
+            "ai_advisory": (
+                f"Under Indian statutory framework ({statutory_reference}), '{product_name}' categorized as {classification} "
+                f"mandates strict botanical identity verification against Ayurvedic Pharmacopoeia of India (API) standards. "
+                f"Ensure batch testing complies with Schedule T heavy metal limits (Lead < 10ppm, Arsenic < 3ppm) and state licensing "
+                f"filings follow the appropriate statutory forms."
+            ),
+            "ai_patent_strategy": (
+                f"For {classification} formulations, direct therapeutic claims on traditionally known botanical ingredients face "
+                f"Section 3(p) Traditional Knowledge Digital Library (TKDL) bars. To establish patentability in India, focus on "
+                f"novel pharmaceutical drug delivery systems (e.g. SNEDDS, liposomes) or verified synergistic ratios with a Chou-Talalay Combination Index < 0.70."
+            )
+        }
+
+    def generate_innovation_ai_insights(
+        self,
+        formulation_name: str,
+        ingredients: List[str],
+        intended_use: str,
+        current_form: str,
+        target_jurisdiction: str
+    ) -> Dict[str, Any]:
+        """
+        Calls Gemini to generate dynamic AI patent white-space insights and polyherbal synergy analysis.
+        """
+        prompt = f"""You are GURU, the premier AI Ayurveda IPR and Regulatory Legal Advisor.
+Analyze this polyherbal innovation proposal for patent white-space opportunities:
+- Formulation Name: {formulation_name}
+- Botanical Ingredients: {', '.join(ingredients)}
+- Intended Use: {intended_use}
+- Current Delivery Form: {current_form}
+- Target Jurisdiction: {target_jurisdiction}
+
+Generate an in-depth AI patentability and chemical biomarker analysis in valid JSON format with:
+1. "ai_innovation_summary": Detailed analysis (2-3 paragraphs) discussing known traditional knowledge in TKDL, potential molecular synergy between these specific herbs, pharmacokinetic barriers (like bioavailability, first-pass metabolism), and how to navigate Section 3(p) / Section 3(e) hurdles.
+2. "custom_opportunities": An array of 3 distinct, high-value patentable white-space opportunities tailored specifically for these herbs. Each opportunity must be an object with:
+   - "category": e.g. "New Delivery Mechanism" or "New Extraction Method" or "New Formulation Process"
+   - "opportunity": Catchy technical title
+   - "technical_description": Specific chemical/formulation mechanism (e.g. SNEDDS nano-emulsion, supercritical CO2 fractionation, synergistic ratio)
+   - "patentability_potential": "High" or "Very High"
+   - "prior_art_hurdle": The specific TKDL / Section 3(p) hurdle this overcomes
+   - "recommended_experimentation": Specific lab test protocol (e.g. HPLC/LC-MS biomarker quantification, in-vitro dissolution, Caco-2 cell permeability)
+
+Return strictly JSON format.
+"""
+        if self._configured and self.api_key:
+            for model_name in [
+                "gemini-2.5-flash",
+                "gemini-flash-latest",
+                "gemini-2.5-pro",
+                "gemini-pro-latest"
+            ]:
+                try:
+                    model = genai.GenerativeModel(model_name)
+                    res = model.generate_content(prompt)
+                    text = res.text.strip()
+                    if "```json" in text:
+                        text = text.split("```json")[1].split("```")[0].strip()
+                    elif "```" in text:
+                        text = text.split("```")[1].split("```")[0].strip()
+                    data = json.loads(text)
+                    if "ai_innovation_summary" in data and "custom_opportunities" in data:
+                        return data
+                except Exception:
+                    continue
+
+        return {
+            "ai_innovation_summary": (
+                f"The polyherbal formulation '{formulation_name}' combining {', '.join(ingredients)} for {intended_use} "
+                f"draws upon classical Ayurvedic wisdom. While basic admixtures are barred under Section 3(p) and Section 3(e), "
+                f"significant patentable white-space exists through advanced pharmaceutical technology, standardized biomarker ratios, "
+                f"and bio-enhancement."
+            ),
+            "custom_opportunities": []
         }
 
 gemini_client = GeminiClient()

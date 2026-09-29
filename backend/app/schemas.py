@@ -25,8 +25,9 @@ class Token(BaseModel):
 class RegulatoryQueryRequest(BaseModel):
     query: str
     jurisdiction: str = Field(default="India", description="India or International")
-    language: str = Field(default="English", description="English, Hindi, or Tamil")
+    language: str = Field(default="English", description="English, Hindi, Tamil, etc.")
     category_filter: Optional[str] = None
+    input_mode: Optional[str] = Field(default="Text", description="Text or Voice")
     user_context: Optional[Dict[str, Any]] = None
 
 class CitationSource(BaseModel):
@@ -47,8 +48,23 @@ class VerificationReport(BaseModel):
     version_valid: bool
     warning_message: Optional[str] = None
     requires_human_expert: bool = False
-    recommended_expert: Optional[str] = None # Patent Expert, AYUSH Consultant, ABS Officer
+    recommended_expert: Optional[str] = None # Patent Attorney, AYUSH Consultant, ABS Officer
     escalation_reason: Optional[str] = None
+
+class PipelineTrace(BaseModel):
+    input_mode: str = "Text" # Text or Voice
+    detected_language: str = "English"
+    translated_query: Optional[str] = None
+    query_understanding: Dict[str, Any] = Field(default_factory=dict)
+    jurisdiction: str = "India"
+    domain_route: str = "IP Retriever" # IP Retriever, Regulatory Retriever, ABS/TKDL Retriever, Product Classification
+    retrieval_sources: List[Dict[str, Any]] = Field(default_factory=list)
+    ai_agent_status: str = "Completed Agentic Reasoning"
+    evidence_status: str = "Evidence Ok" # Evidence Ok or Evidence Weak
+    safe_abstain: bool = False
+    safe_abstain_reason: Optional[str] = None
+    recommended_expert: Optional[str] = None
+    execution_time_ms: Optional[float] = None
 
 class RegulatoryQueryResponse(BaseModel):
     query: str
@@ -58,6 +74,7 @@ class RegulatoryQueryResponse(BaseModel):
     why_this_answer: List[str] = Field(default_factory=list, description="Step-by-step reasoning bullets")
     citations: List[CitationSource] = Field(default_factory=list)
     verification: VerificationReport
+    pipeline_trace: Optional[PipelineTrace] = None
     patentability_score: Optional[float] = None
     tkdl_risk_score: Optional[float] = None
     abs_risk_score: Optional[float] = None
@@ -88,6 +105,8 @@ class ClassificationResult(BaseModel):
     safety_data_required: str
     reasoning: List[str]
     confidence_score: float = 0.95
+    ai_advisory: Optional[str] = None
+    ai_patent_strategy: Optional[str] = None
 
 # Innovation Analyzer Schemas
 class InnovationAnalysisRequest(BaseModel):
@@ -117,6 +136,7 @@ class InnovationAnalysisResponse(BaseModel):
     innovation_opportunities: List[InnovationWhiteSpacedArea]
     abs_compliance_roadmap: List[str]
     human_expert_guidance: Optional[str] = None
+    ai_innovation_summary: Optional[str] = None
 
 # Knowledge Graph Schemas
 class GraphNode(BaseModel):

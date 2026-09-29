@@ -33,10 +33,16 @@ def test_all():
     result = regulatory_workflow.execute(
         query="Can I patent a novel liposomal curcumin delivery system?",
         jurisdiction="India",
-        language="English"
+        language="English",
+        input_mode="Voice"
     )
     print(f"3. Workflow check: Answer length={len(result.answer)}, Citations={len(result.citations)}, Verified={result.verification.is_verified}")
     print(f"   Why this answer bullets: {len(result.why_this_answer)}")
+    print(f"   Pipeline Trace Domain: {result.pipeline_trace.domain_route}, Evidence: {result.pipeline_trace.evidence_status}, Input: {result.pipeline_trace.input_mode}")
+    assert result.pipeline_trace is not None
+    assert result.pipeline_trace.domain_route == "IP Retriever"
+    assert result.pipeline_trace.input_mode == "Voice"
+    assert len(result.pipeline_trace.retrieval_sources) == 3
 
     # 4. Test Product Classification
     submission = ClassificationSubmission(

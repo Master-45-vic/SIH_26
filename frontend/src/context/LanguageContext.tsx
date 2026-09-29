@@ -14,9 +14,9 @@ interface Translations {
 
 export const UI_TRANSLATIONS: Translations = {
   appName: {
-    English: "AyurGuru",
-    Hindi: "आयुर्गुरु",
-    Tamil: "ஆயுர்குரு",
+    English: "GURU",
+    Hindi: "गुरु",
+    Tamil: "குரு",
   },
   tagline: {
     English: "AI-Powered Multilingual Ayurveda IPR & Regulatory Assistant",
@@ -69,9 +69,9 @@ export const UI_TRANSLATIONS: Translations = {
     Tamil: "நிர்வாக மூலங்கள்",
   },
   demoUser: {
-    English: "SIH Jury Demo",
-    Hindi: "एसआईएच जूरी डेमो",
-    Tamil: "SIH நடுவர் டெமோ",
+    English: "Demo User",
+    Hindi: "डेमो उपयोगकर्ता",
+    Tamil: "டெமோ பயனர்",
   },
   askQuestion: {
     English: "Ask any IPR, Patent, ABS or AYUSH regulatory question...",

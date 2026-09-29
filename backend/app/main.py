@@ -67,4 +67,4 @@ def root():
 
 @app.get("/health")
 def health_check():
-    return {"status": "healthy", "service": "AyurGuru Backend"}
+    return {"status": "healthy", "service": "GURU Backend"}

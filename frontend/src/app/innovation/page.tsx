@@ -224,7 +224,27 @@ export default function InnovationPage() {
             </div>
           </div>
 
-          {/* Three White-Space Opportunities */}
+          {/* Gemini AI Strategic Innovation Synthesis */}
+          {analysis.ai_innovation_summary && (
+            <div className="bg-gradient-to-br from-[#f2f8f0] to-[#e6f2e4] rounded-3xl p-6 sm:p-7 border border-[#bddbb9] space-y-3.5 shadow-sm">
+              <div className="flex items-center justify-between flex-wrap gap-2">
+                <div className="flex items-center space-x-2 text-[#143825]">
+                  <Sparkles className="w-5 h-5 text-[#5a9330]" />
+                  <h4 className="text-sm font-black uppercase tracking-wider">
+                    Gemini AI Strategic Gap & Molecular Synergy Synthesis
+                  </h4>
+                </div>
+                <span className="text-[10px] font-extrabold px-3 py-1 rounded-full bg-[#143825] text-[#b8f59b] shadow-sm">
+                  Powered by Gemini AI
+                </span>
+              </div>
+              <p className="text-xs text-[#2a4533] leading-relaxed whitespace-pre-line font-sans">
+                {analysis.ai_innovation_summary}
+              </p>
+            </div>
+          )}
+
+          {/* White-Space Opportunities */}
           <div className="space-y-4">
             <div className="flex items-center justify-between">
               <div>
@@ -236,11 +256,11 @@ export default function InnovationPage() {
                 </p>
               </div>
               <span className="text-xs font-bold text-[#2d5c1e] bg-[#eef6ec] px-3.5 py-1 rounded-full border border-[#c2d8be]">
-                3 Pathways Discovered
+                {analysis.innovation_opportunities.length} Pathways Discovered
               </span>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {analysis.innovation_opportunities.map((opp: any, idx: number) => (
                 <div
                   key={idx}

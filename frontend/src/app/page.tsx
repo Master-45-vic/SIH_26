@@ -13,10 +13,9 @@ import {
   Share2,
   ArrowRight,
   Search,
-  ShieldCheck,
   Globe2,
   Leaf,
-  CheckCircle2,
+  CheckCircle2
 } from "lucide-react";
 
 export default function HomePage() {
@@ -40,17 +39,6 @@ export default function HomePage() {
         ========================================================================
       */}
       <section className="relative">
-        {/* Subtle decorative leaf accent */}
-        <div className="absolute -left-12 -top-6 w-36 h-36 pointer-events-none opacity-50 hidden lg:block">
-          <Image
-            src="/images/leaf_accent.jpg"
-            alt="Botanical Leaf Accent"
-            width={140}
-            height={140}
-            className="object-contain mix-blend-multiply"
-          />
-        </div>
-
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
           {/* Left Column: Focused, concise typography & search */}
           <div className="lg:col-span-7 space-y-6">
@@ -110,28 +98,14 @@ export default function HomePage() {
 
           {/* Right Column: Visual Frame */}
           <div className="lg:col-span-5 flex justify-center">
-            <div className="relative w-full max-w-[380px] h-[440px] sm:h-[480px] rounded-3xl overflow-hidden shadow-xl border-4 border-white/90 bg-white">
+            <div className="relative w-full max-w-[400px] h-[460px] sm:h-[500px] rounded-3xl overflow-hidden shadow-2xl border-4 border-white/90 bg-white group">
               <Image
-                src="/images/hero_botanicals.jpg"
-                alt="Ayurvedic Botanical Elixirs and Medicinal Plants"
+                src="/images/ayurveda_lawyer_guidance.jpg"
+                alt="IPR Patent Lawyer providing statutory guidance on Ayurveda formulation"
                 fill
                 priority
-                className="object-cover object-center"
+                className="object-cover object-center group-hover:scale-105 transition-transform duration-700"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#143825]/60 via-transparent to-transparent" />
-
-              {/* Floating Verified Badge */}
-              <div className="absolute bottom-5 left-5 right-5 glass-eco p-3.5 rounded-2xl shadow-lg border border-white/80">
-                <div className="flex items-center space-x-2.5">
-                  <div className="w-8 h-8 rounded-full bg-[#5a9330] text-white flex items-center justify-center shrink-0">
-                    <ShieldCheck className="w-4 h-4" />
-                  </div>
-                  <div>
-                    <div className="text-xs font-bold text-[#143825]">100% Statutorily Verified</div>
-                    <div className="text-[10px] text-[#4a6152]">Patents Act 1970 • Rule 158-B • NBA Form III</div>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
         </div>
@@ -239,7 +213,7 @@ export default function HomePage() {
               India Statutory Law vs. International Frameworks
             </h3>
             <p className="text-xs text-[#4a6152] leading-relaxed">
-              AyurGuru guarantees 100% boundary isolation. Domestic queries follow Patents Act 1970, Rule 158-B, and Biodiversity Act. Export queries adhere to US FDA Botanical Guidelines, EU THMPD, and WIPO.
+              GURU guarantees 100% boundary isolation. Domestic queries follow Patents Act 1970, Rule 158-B, and Biodiversity Act. Export queries adhere to US FDA Botanical Guidelines, EU THMPD, and WIPO.
             </p>
           </div>
 

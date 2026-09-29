@@ -154,7 +154,7 @@ export const HumanEscalationModal: React.FC<EscalationModalProps> = ({
               <div className="flex items-center justify-between pt-2">
                 <span className="text-[11px] text-[#5e7164] flex items-center space-x-1">
                   <Clock className="w-3.5 h-3.5 text-[#5e7164]" />
-                  <span>Free consultation for SIH Prototype</span>
+                  <span>Accredited regulatory specialist review</span>
                 </span>
                 <div className="flex space-x-2">
                   <button

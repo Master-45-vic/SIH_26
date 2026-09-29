@@ -5,6 +5,7 @@ from ..schemas import (
     InnovationAnalysisResponse,
     InnovationWhiteSpacedArea
 )
+from ..agent.gemini_client import gemini_client
 
 class InnovationGapAnalyzer:
     """
@@ -13,6 +14,7 @@ class InnovationGapAnalyzer:
       1. Prior art conflict with TKDL treatises & granted patents
       2. High-value patentable white-space opportunities (novel delivery, extraction, formulation)
       3. Dynamic scores for Patentability, TKDL Risk, ABS Risk, and Commercial Readiness
+      4. Dynamic Gemini AI patentability synthesis & herbal white-space ideation
     """
 
     def analyze(self, request: InnovationAnalysisRequest) -> InnovationAnalysisResponse:
@@ -165,6 +167,37 @@ class InnovationGapAnalyzer:
             "methodology or SFE-CO2 process claims, accompanied by NBA Form III filing."
         )
 
+        # Call Gemini AI for dynamic innovation summary and custom opportunities
+        ai_insights = gemini_client.generate_innovation_ai_insights(
+            formulation_name=formulation_name,
+            ingredients=ingredients,
+            intended_use=request.intended_use,
+            current_form=request.current_form or "Powder / Decoction",
+            target_jurisdiction=request.target_jurisdiction
+        )
+
+        ai_summary = ai_insights.get("ai_innovation_summary")
+        custom_opps = ai_insights.get("custom_opportunities", [])
+        if isinstance(custom_opps, list):
+            for co in reversed(custom_opps):
+                if isinstance(co, dict) and "opportunity" in co:
+                    try:
+                        def _to_str(val, default=""):
+                            if isinstance(val, list):
+                                return "; ".join(str(x) for x in val)
+                            return str(val) if val is not None else default
+
+                        opportunities.insert(0, InnovationWhiteSpacedArea(
+                            category=_to_str(co.get("category"), "Novel Delivery / Formulation"),
+                            opportunity=_to_str(co.get("opportunity"), "Tailored AI Bio-Enhancement"),
+                            technical_description=_to_str(co.get("technical_description"), ""),
+                            patentability_potential=_to_str(co.get("patentability_potential"), "High"),
+                            prior_art_hurdle=_to_str(co.get("prior_art_hurdle"), "Addresses Section 3(p) / Section 3(e) prior art"),
+                            recommended_experimentation=_to_str(co.get("recommended_experimentation"), "Standardized HPLC/LC-MS biomarker quantification")
+                        ))
+                    except Exception as err:
+                        print(f"Notice: could not parse custom opportunity: {err}")
+
         return InnovationAnalysisResponse(
             formulation_name=formulation_name,
             ingredients=ingredients,
@@ -176,7 +209,8 @@ class InnovationGapAnalyzer:
             traditional_knowledge_prior_art=tk_prior_art,
             innovation_opportunities=opportunities,
             abs_compliance_roadmap=abs_roadmap,
-            human_expert_guidance=human_guidance
+            human_expert_guidance=human_guidance,
+            ai_innovation_summary=ai_summary
         )
 
 innovation_analyzer = InnovationGapAnalyzer()

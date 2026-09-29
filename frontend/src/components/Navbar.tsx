@@ -19,7 +19,6 @@ import {
   CheckCircle,
   Menu,
   X,
-  UserCheck,
   Leaf,
   ChevronDown
 } from "lucide-react";
@@ -63,35 +62,6 @@ export const Navbar: React.FC = () => {
 
   return (
     <>
-      {/* Top Eco Announcement Bar */}
-      <div className="bg-[#143825] text-[#d8ebd2] text-xs py-2 px-4 border-b border-[#235338]">
-        <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
-          <div className="flex items-center space-x-2">
-            <span className="bg-[#5ea83b]/30 text-[#a3e281] font-bold px-2.5 py-0.5 rounded-full text-[11px] border border-[#5ea83b]/40 flex items-center space-x-1">
-              <Leaf className="w-3 h-3 text-[#92dc6e]" />
-              <span>SIH 2024 Solution</span>
-            </span>
-            <span className="text-[#c1dfba] hidden sm:inline text-[11px] tracking-wide">
-              Ayurveda IPR & Regulatory Compliance National Intelligence Portal
-            </span>
-          </div>
-
-          <div className="flex items-center space-x-4">
-            <button
-              onClick={() => setApiKeyModalOpen(true)}
-              className="flex items-center space-x-1 text-[#b8dbb0] hover:text-white transition-colors cursor-pointer text-xs"
-            >
-              <Key className="w-3.5 h-3.5 text-[#a3e281]" />
-              <span>Gemini Key</span>
-            </button>
-            <div className="flex items-center space-x-1.5 text-[#92dc6e] font-semibold text-xs">
-              <UserCheck className="w-3.5 h-3.5" />
-              <span>{user?.full_name || "Dr. Aarav Sharma (Jury Demo)"}</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
       {/* Main Organic Navbar - Santhika & Ecology Style */}
       <nav className="sticky top-0 z-50 bg-[#edf5eb]/90 backdrop-blur-md border-b border-[#d8e8d5]/80 transition-all">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -103,8 +73,7 @@ export const Navbar: React.FC = () => {
               </div>
               <div className="flex flex-col">
                 <div className="flex items-center space-x-1">
-                  <span className="text-2xl font-black text-[#143825] tracking-tight font-sans">ayur</span>
-                  <span className="text-2xl font-black text-[#5a9330] tracking-tight font-sans">guru</span>
+                  <span className="text-2xl font-black text-[#143825] tracking-tight font-sans">GURU</span>
                 </div>
                 <span className="text-[10px] font-semibold text-[#668874] tracking-wider -mt-1 uppercase">
                   Holistic IPR Portal

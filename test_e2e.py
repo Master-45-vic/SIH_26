@@ -11,7 +11,7 @@ def test_endpoint(url, method="GET", data=None):
         req.data = body
         
     try:
-        with urllib.request.urlopen(req, timeout=15) as res:
+        with urllib.request.urlopen(req, timeout=30) as res:
             code = res.status
             content = res.read().decode("utf-8", errors="ignore")
             return code, content

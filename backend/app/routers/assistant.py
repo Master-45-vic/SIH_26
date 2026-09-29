@@ -29,7 +29,8 @@ def query_regulatory_assistant(
         query=request.query,
         jurisdiction=request.jurisdiction,
         language=request.language,
-        category_filter=request.category_filter
+        category_filter=request.category_filter,
+        input_mode=request.input_mode or "Text"
     )
     return response
 

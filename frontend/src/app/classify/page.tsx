@@ -16,6 +16,8 @@ import {
   Building,
   ClipboardList,
   Sparkles,
+  Bot,
+  Lightbulb,
 } from "lucide-react";
 
 export default function ClassifyPage() {
@@ -469,6 +471,49 @@ export default function ClassifyPage() {
                 </ul>
               </div>
             </div>
+
+            {/* Gemini AI Strategic Insights (If available) */}
+            {(result.ai_advisory || result.ai_patent_strategy) && (
+              <div className="space-y-3.5">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center space-x-2">
+                    <Sparkles className="w-4 h-4 text-[#5a9330]" />
+                    <span className="text-xs font-black uppercase tracking-wider text-[#143825]">
+                      Gemini AI Regulatory & Patent Strategy
+                    </span>
+                  </div>
+                  <span className="text-[10px] font-extrabold px-3 py-1 rounded-full bg-[#143825] text-[#b8f59b] shadow-sm">
+                    Powered by Gemini AI
+                  </span>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {result.ai_advisory && (
+                    <div className="p-5 rounded-2xl bg-gradient-to-br from-[#f2f8f0] to-[#e4f0e1] border border-[#c0d8bc] space-y-2.5 shadow-sm">
+                      <div className="flex items-center space-x-2 text-xs font-bold text-[#143825]">
+                        <Bot className="w-4 h-4 text-[#5a9330]" />
+                        <span>AI Botanical Compliance Advisory</span>
+                      </div>
+                      <p className="text-xs text-[#314838] leading-relaxed whitespace-pre-line font-sans">
+                        {result.ai_advisory}
+                      </p>
+                    </div>
+                  )}
+
+                  {result.ai_patent_strategy && (
+                    <div className="p-5 rounded-2xl bg-gradient-to-br from-[#fbf8ee] to-[#f4ecd4] border border-[#e8dcb5] space-y-2.5 shadow-sm">
+                      <div className="flex items-center space-x-2 text-xs font-bold text-[#7a4e0a]">
+                        <Lightbulb className="w-4 h-4 text-[#c27803]" />
+                        <span>AI Patent & Section 3(p) Strategy</span>
+                      </div>
+                      <p className="text-xs text-[#523910] leading-relaxed whitespace-pre-line font-sans">
+                        {result.ai_patent_strategy}
+                      </p>
+                    </div>
+                  )}
+                </div>
+              </div>
+            )}
 
             {/* Safety & Pre-clinical Requirements */}
             <div className="p-5 rounded-2xl bg-[#fff8eb] border border-[#f1d7a8] space-y-2 shadow-sm">

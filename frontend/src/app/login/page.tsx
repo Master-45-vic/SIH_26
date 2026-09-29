@@ -45,18 +45,18 @@ export default function LoginPage() {
         <div className="w-14 h-14 rounded-2xl bg-[#e2ede0] text-[#143825] flex items-center justify-center mx-auto border border-[#c2d8be] shadow-sm">
           <span className="font-black text-3xl">अ</span>
         </div>
-        <h1 className="text-2xl sm:text-3xl font-black text-[#143825]">Sign in to AyurGuru</h1>
+        <h1 className="text-2xl sm:text-3xl font-black text-[#143825]">Sign in to GURU</h1>
         <p className="text-xs sm:text-sm text-[#5e7164]">
           Access your saved product classifications, innovation dossiers, and consultation dockets.
         </p>
       </div>
 
       <div className="glass-eco rounded-3xl p-8 border border-[#c8d9c5]/80 shadow-md space-y-6">
-        {/* Fast Jury Access Button */}
+        {/* Fast Demo Access Button */}
         <div className="bg-[#eef6ec] p-4 rounded-2xl border border-[#c2d8be] text-center space-y-2.5 shadow-sm">
           <div className="flex items-center justify-center space-x-1.5 text-xs font-bold text-[#143825]">
             <Sparkles className="w-4 h-4 text-[#5a9330]" />
-            <span>Smart India Hackathon Jury Evaluation</span>
+            <span>Instant Demo Evaluation</span>
           </div>
           <p className="text-[11px] text-[#4a6152]">
             Click below for instant one-click authenticated access with preloaded demo profile:
@@ -67,7 +67,7 @@ export default function LoginPage() {
             className="w-full py-2.5 bg-[#5a9330] hover:bg-[#4d7d28] text-white rounded-full text-xs font-bold shadow-md shadow-[#5a9330]/20 transition-all cursor-pointer disabled:opacity-50 flex items-center justify-center space-x-1.5"
           >
             <UserCheck className="w-4 h-4" />
-            <span>Instant Demo Access (Dr. Aarav Sharma)</span>
+            <span>Instant Demo Access</span>
           </button>
         </div>
 

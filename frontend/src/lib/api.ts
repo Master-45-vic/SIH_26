@@ -27,7 +27,7 @@ export async function fetchApi<T>(endpoint: string, options: RequestInit = {}): 
 
 export const api = {
   // Query & Assistant
-  queryAssistant: (data: { query: string; jurisdiction: string; language: string; category_filter?: string }) =>
+  queryAssistant: (data: { query: string; jurisdiction: string; language: string; category_filter?: string; input_mode?: string }) =>
     fetchApi<any>("/assistant/query", {
       method: "POST",
       body: JSON.stringify(data),

@@ -1,7 +1,26 @@
 import os
+from pathlib import Path
+
+# Load .env file automatically
+_backend_env = Path(__file__).resolve().parent.parent / ".env"
+_root_env = Path(__file__).resolve().parent.parent.parent / ".env"
+for _env_path in [_backend_env, _root_env]:
+    if _env_path.exists():
+        try:
+            with open(_env_path, "r", encoding="utf-8") as _f:
+                for _line in _f:
+                    _line = _line.strip()
+                    if _line and not _line.startswith("#") and "=" in _line:
+                        _k, _v = _line.split("=", 1)
+                        _k = _k.strip()
+                        _v = _v.strip().strip('"').strip("'")
+                        if _k and _k not in os.environ:
+                            os.environ[_k] = _v
+        except Exception:
+            pass
 
 class Settings:
-    PROJECT_NAME: str = "AyurGuru - AI Ayurveda IPR & Regulatory Assistant"
+    PROJECT_NAME: str = os.getenv("PROJECT_NAME", "GURU - AI Ayurveda IPR & Regulatory Assistant")
     VERSION: str = "1.0.0"
     API_V1_PREFIX: str = "/api/v1"
     

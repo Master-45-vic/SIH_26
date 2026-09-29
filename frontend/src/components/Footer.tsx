@@ -14,16 +14,15 @@ export const Footer: React.FC = () => {
                 <Leaf className="w-4 h-4" />
               </div>
               <div className="flex items-center space-x-1">
-                <span className="font-black text-white">ayur</span>
-                <span className="font-black text-[#a6eb90]">guru</span>
+                <span className="font-black text-white text-xl tracking-tight">GURU</span>
               </div>
             </div>
             <p className="text-[#a4c5ac] text-xs leading-relaxed">
               Empowering Ayurveda practitioners, researchers, MSMEs, and medicinal cultivators with AI-driven IPR & statutory regulatory navigation.
             </p>
             <div className="flex items-center space-x-2 text-[#a6eb90] font-semibold pt-1">
-              <Award className="w-4 h-4" />
-              <span>Smart India Hackathon 2024 Solution</span>
+              <ShieldCheck className="w-4 h-4" />
+              <span>Verified Statutory Intelligence</span>
             </div>
           </div>
 
@@ -78,7 +77,7 @@ export const Footer: React.FC = () => {
 
         <div className="pt-8 border-t border-[#1d4d33] flex flex-col sm:flex-row items-center justify-between gap-3 text-[#8cb496] text-[11px]">
           <div>
-            © 2024 AyurGuru. Eco-luxury holistic interface inspired by Santhika and Ecology.
+            © 2024 GURU. All rights reserved.
           </div>
           <div className="flex items-center space-x-3">
             <span>Hybrid RAG (BM25 + Vectors)</span>
